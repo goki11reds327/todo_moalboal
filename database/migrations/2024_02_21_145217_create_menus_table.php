@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('ingredients');
             $table->integer('amount');
             $table->string('place');
-            $table->integer('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->text('item_image');
             $table->string('contents');
             $table->string('post_image');
-            $table->integer('todo_id');
+            $table->foreignId('todo_id')->constrained();
             $table->timestamps();
         });
     }
