@@ -131,4 +131,22 @@ a.btn-gradient {
     box-sizing: border-box;
     border: 1px solid #ccc; /* Border for visualization */
     margin: 10px;
+    text-align: center;
+    
+}
+.item img {
+  max-width: 80%;
+  height: auto;
+}
+
+.item p {
+  position: relative; /* 絶対位置指定 */
+  top: 0; /* 上端からの位置を0に設定 */
+  left: 0; /* 左端からの位置を0に設定 */
+  transform: translate(0, 0); /* テキストを元の位置に戻す */
+  margin: 0; /* デフォルトのマージンを除去 */
+  color: #fff; /* テキストの色を調整（任意） */
+  font-size: 18px; /* テキストのフォントサイズを調整（任意） */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* テキストに影を追加（任意） */
+  background-color: #212529;
 }
