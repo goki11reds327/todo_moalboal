@@ -12,17 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menus', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
+            $table->date('date');
             $table->string('title');
-            $table->boolean('checkbox');
-            $table->string('ingredients');
-            $table->integer('amount');
-            $table->string('place');
-            $table->foreignId('user_id')->constrained();
-            $table->text('item_image');
-            $table->string('contents');
-            $table->string('post_image');
-            $table->foreignId('todo_id')->constrained();
+            $table->string('content');
+            $table->text('pre_image');
+            $table->text('post_image');
+            $table->foreignId('user_id')->constrained;
             $table->timestamps();
         });
     }
