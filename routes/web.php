@@ -21,7 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/tobuylist', function () {
-    return view('tobuylist');
+Route::get('/menu', function () {
+    return view('menu');
+});
+
+Route::get('/posts', function () {
+    return view('posts');
 });
 
