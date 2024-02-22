@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ToBuyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +31,6 @@ Route::get('/menu', function () {
 Route::get('/toBuy', function () {
     return view('toBuy');
 });
+
+Route::get('/user/show/{id}', [UserController::class, 'show'])->name('show');
 
