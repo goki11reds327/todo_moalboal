@@ -16,7 +16,7 @@
             <a href="#" class="btn btn-gradient" onclick="showDiv(7)"><span>１週間</span></a>
         </div>
         <div class="new_post_btn">
-            <a href="#" class="btn btn-gradient"><span>新規投稿</span></a>
+            <a href="/posts" class="btn btn-gradient"><span>新規投稿</span></a>
         </div>
     </header>
 
