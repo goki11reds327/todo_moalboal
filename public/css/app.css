@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.new_post_btn {
+  margin-right: 20px; /* 適切なマージンを設定して右端に寄せる */
+}
+
 /* ここからボタンの修飾 */
 .display_btn{
     width:80%;
@@ -126,23 +130,25 @@ a.btn-gradient {
 }
 
 .item {
-    width: 100%; /* Full width initially */
-    padding: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc; /* Border for visualization */
-    margin: 10px;
-    text-align: center;
+  position: relative; /* 相対位置指定 */
+  width: 100%; /* Full width initially */
+  padding: 0px;
+  box-sizing: border-box;
+  border: 1px solid #ccc; /* Border for visualization */
+  margin: 10px;
+  text-align: center;
     
 }
 .item img {
-  max-width: 80%;
+  max-width: 100%;
   height: auto;
 }
 
 .item p {
-  position: relative; /* 絶対位置指定 */
+  position: absolute; /* 絶対位置指定 */
   top: 0; /* 上端からの位置を0に設定 */
   left: 0; /* 左端からの位置を0に設定 */
+  width: 100%; /* Full width of the container */
   transform: translate(0, 0); /* テキストを元の位置に戻す */
   margin: 0; /* デフォルトのマージンを除去 */
   color: #fff; /* テキストの色を調整（任意） */
