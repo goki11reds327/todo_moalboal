@@ -31,4 +31,9 @@
             <label for="comment">Comment:</label>
             <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
         </div>
+
+         <!-- Addボタン -->
+         <div>
+            <button id="addButton">Add</button>
+        </div>
     </main>
