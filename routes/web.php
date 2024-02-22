@@ -25,7 +25,7 @@ Route::get('/menu', function () {
     return view('menu');
 });
 
-Route::get('/toBuy', function () {
-    return view('toBuy');
+Route::get('/posts', function () {
+    return view('posts');
 });
 
