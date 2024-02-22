@@ -37,3 +37,18 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+
+
+function showDiv(day) {
+    // 隠された全ての要素を非表示
+    var allItems = document.querySelectorAll('.item');
+    allItems.forEach(function(item) {
+        item.classList.add('hidden');
+    });
+
+    // 対象の曜日だけを表示
+    var targetItems = document.querySelectorAll('.' + day);
+    targetItems.forEach(function(item) {
+        item.classList.remove('hidden');
+    });
+}
