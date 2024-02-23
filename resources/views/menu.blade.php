@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
 </head>
 <body>
     <header>
-        <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image }}" alt=""></div>
+        <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image) }}" alt=""></div>
         <div class="display_btn">
             <a href="#" class="btn btn-gradient" onclick="showDiv(1)"><span>１日</span></a>
             <a href="#" class="btn btn-gradient" onclick="showDiv(3)"><span>３日</span></a>

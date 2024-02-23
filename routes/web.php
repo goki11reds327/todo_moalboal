@@ -37,6 +37,8 @@ Route::get('/posts', function () {
 });
 
 Route::get('/user/show/{id}', [UserController::class, 'show'])->name('show');
+Route::get('/user/show1/{id}', [UserController::class, 'show1'])->name('show1');
+Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
 
 
 Route::get('/tobuy', function () {

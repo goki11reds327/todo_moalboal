@@ -7,6 +7,13 @@
     overflow: hidden;
 }
 
+.self_image > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .new_post_btn {
   margin-right: 20px; /* 適切なマージンを設定して右端に寄せる */
 }

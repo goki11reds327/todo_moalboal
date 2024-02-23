@@ -7,6 +7,13 @@
     overflow: hidden;
 }
 
+.self_image > img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
 .buttons-top{
     display: flex;
     position: absolute;

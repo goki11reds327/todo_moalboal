@@ -13,4 +13,16 @@ class UserController extends Controller
     $user = User::find($id);
     return view('profile',['user'=> $user]);
     }
+
+    public function show1($id)
+    {
+    $user = User::find($id);
+    return view('menu',['user'=> $user]);
+    }
+
+    public function show2($id)
+    {
+    $user = User::find($id);
+    return view('tobuy',['user'=> $user]);
+    }
 }
