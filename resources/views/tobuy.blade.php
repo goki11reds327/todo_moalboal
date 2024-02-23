@@ -15,7 +15,7 @@
             <button class="top-button">top</button>
         </div>
         <div class="menu-bottom">
-            <div class="self_image"><img src="" alt=""></div>
+            <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image) }}" alt=""></div>
             <div class="display_btn">
                 <a href="#" class="btn btn-gradient" onclick="showDiv(1)"><span>１日</span></a>
                 <a href="#" class="btn btn-gradient" onclick="showDiv(3)"><span>３日</span></a>
