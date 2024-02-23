@@ -9,12 +9,12 @@ use App\Models\Menu;
 class MenuController extends Controller
 {
     //
-public function showMenulinePage()
+public function showMenuPage()
 {
     $menus = Menu::latest()->get();
     dd($menus);
 
-    return view()('menu', ['menu' => $menus]);
+    return view('menu', ['menu' => $menus]);
 }
 
 public function destroy($id)
