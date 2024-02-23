@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/app.css">
+    {{-- <link rel="stylesheet" href="../css/app.css"> --}}
 </head>
 <body>
     <header>
@@ -16,19 +16,22 @@
             <a href="#" class="btn btn-gradient" onclick="showDiv(7)"><span>１週間</span></a>
         </div>
         <div class="new_post_btn">
-            <a href="/posts" class="btn btn-gradient"><span>新規投稿</span></a>
+            <a href="{{ route('menu.create') }}" class="btn btn-gradient"><span>新規投稿</span></a>
         </div>
     </header>
 
     <main>
         <div id="app" class="container">
-            <div class="item monday">
-                <a href="#">
-                    <img src="{{ asset('img/pexels-cats-coming-674574.jpg') }}" alt="画像">
-                    <p>○月△日（□）カレー</p>
-                </a>
-            </div>
-            <div class="item tuesday">
+            @foreach($menus as $menu)
+                <div class="item monday">
+                    <a href="#">
+                        <p>{{ $menu->date }} {{ $menu->title }}</p>
+                        <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像">
+                    </a>
+                    <div class="content">{{ $menu->content }}</div>
+                </div>
+            @endforeach
+            {{-- <div class="item tuesday">
                 <a href="#">
                     <img src="{{ asset('img/pexels-cats-coming-674574.jpg') }}" alt="画像">
                     <p>○月△日（□）カレー</p>
@@ -69,7 +72,7 @@
                     <img src="{{ asset('img/pexels-cats-coming-674574.jpg') }}" alt="画像">
                     <p>○月△日（□）カレー</p>
                 </a>
-            </div>
+            </div> --}}
            
         </div>
     </main>
