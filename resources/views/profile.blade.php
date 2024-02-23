@@ -71,7 +71,7 @@
         <div class="profile-box">
             <p>{{ $user->name }}さん</p>
             <div class="image-box">
-                <img src="{{ asset('storage/images/' . $user->avatar) }}" alt="">
+                <img src="{{ asset('storage/img/' . $user->user_image) }}" alt="">
             </div>
             <button type="button" onclick="history.back()" class="return-btn">戻る</button>
         </div>

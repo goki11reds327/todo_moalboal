@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -40,12 +40,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('プロフィール画像（サイズは1024kbyteまで') }}</label>
+                            <label for="user_image" class="col-md-4 col-form-label text-md-end">{{ __('プロフィール画像（サイズは1024kbyteまで') }}</label>
 
                             <div class="col-md-6">
-                                <input id="avatar" type="file" class="@error('avatar') is-invalid @enderror" name="avatar">
+                                <input id="user_image" type="file" class="@error('user_image') is-invalid @enderror" name="user_image">
 
-                                @error('avatar')
+                                @error('user_image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
