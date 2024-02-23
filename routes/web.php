@@ -39,6 +39,6 @@ Route::get('/posts', function () {
 Route::get('/user/show/{id}', [UserController::class, 'show'])->name('show');
 
 
-Route::get('/foraday', function () {
-    return view('foraday');
+Route::get('/tobuy', function () {
+    return view('tobuy');
 });

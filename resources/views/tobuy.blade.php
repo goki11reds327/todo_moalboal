@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y0V7aUpIOH3pXxXn9TCeS5qXfddE1yCoeVA3ieh5P0wFegzkE8MKChS/N9eX7KSj" crossorigin="anonymous">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('/css/foraday.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/tobuy.css') }}">
 </head>
 <body>
     <header>
@@ -14,11 +15,12 @@
             <button class="top-button">top</button>
         </div>
         <div class="menu-bottom">
-            <img src="#" alt="user写真" class="user-photo">
-            <div class="buttons-bottom">
-                <button class="button">３日間</button>
-                <button class="button">１週間</button>
-                <button class="button">履歴</button>
+            <div class="self_image"><img src="" alt=""></div>
+            <div class="display_btn">
+                <a href="#" class="btn btn-gradient" onclick="showDiv(1)"><span>１日</span></a>
+                <a href="#" class="btn btn-gradient" onclick="showDiv(3)"><span>３日</span></a>
+                <a href="#" class="btn btn-gradient" onclick="showDiv(7)"><span>１週間</span></a>
+            </div>
             </div>
         </div>
     </header>
