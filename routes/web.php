@@ -24,23 +24,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/profile', function () {
-    return view('profile');
-});
-
-Route::get('/menu', function () {
-    return view('menu');
-});
-
-Route::get('/posts', function () {
-    return view('posts');
-});
+Route::get('/menu/index', [App\Http\Controllers\MenuController::class, 'index'])->name('menu.index');
+Route::get('/menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('menu.create');
+Route::post('/menu/store', [App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
 
 Route::get('/user/show/{id}', [UserController::class, 'show'])->name('show');
 Route::get('/user/show1/{id}', [UserController::class, 'show1'])->name('show1');
 Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
-
-
-Route::get('/tobuy', function () {
-    return view('tobuy');
-});
