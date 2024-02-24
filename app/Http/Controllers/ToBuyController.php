@@ -44,6 +44,6 @@ class ToBuyController extends Controller
         // dd($tweet);
         $toBuy->delete();
 
-        return redirect()->route('toBuy');
+        return redirect()->route('tobuy');
     }
 }
