@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class ToBuy extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'ingredient','amount','place','item_image'
+    ];
+    
+    public function menu()
+    {
+        return $this->belongsTo('App\Models\menu');
+    }
 }
