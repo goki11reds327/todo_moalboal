@@ -27,6 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/menu/index', [App\Http\Controllers\MenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('menu.create');
 Route::post('/menu/store', [App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
+Route::get('/menu/{id}', [App\Http\Controllers\MenuController::class, 'show'])->name('menu.show');
 
 Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
 Route::get('/user/show/{id}', [UserController::class, 'show'])->name('show');
