@@ -22,7 +22,7 @@ function create()
 function store(Request $request)
 {
     // $pre_image = request()->file('pre_image')->getClientOriginalName();
-    // request()->file('pre_image')->storeAs('public/img',$pre_image);
+    // request()->file('pre_image')->storeAs('store/img',$pre_image);
 
     $menu = new Menu;  //データベースに保存
     $menu -> date = $request -> date;
@@ -42,22 +42,33 @@ function show($id)
 
     return view('menu.show',['menu'=>$menu]);
 }
-    //
-public function showMenuPage()
-{
-    $menus = Menu::latest()->get();
-    dd($menus);
 
-    return view('menu', ['menu' => $menus]);
+function edit($id)
+{
+    $menu = Menu::find($id);
+
+    return view('menu.edit',['menu'=>$menu]);
 }
 
-public function destroy($id)
+function update(Request $request,$id) //どのIDを紐づけているのか$idで指定
 {
-    dd($id);
     $menu = Menu::find($id);
-    dd($menu);
-    $menu->delete();
 
-    return redirect()->route('menu');
+    $menu -> date = $request -> date;
+    $menu -> title = $request -> title;
+    $menu -> pre_image = $request -> pre_image;
+    $menu -> content = $request -> content;
+    $menu -> save();
+
+    return view('menu.show',['menu'=>$menu]);
+}
+
+function destroy($id)
+{
+    $menu = Menu::find($id);
+
+    $menu -> delete();
+
+    return redirect()->route('menu.index');
 }
 }

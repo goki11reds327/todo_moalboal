@@ -40,6 +40,9 @@
                             <p class="comment-title">comment</p>
                             {{ $menu->content }}
                         </div>
+                        <div class="detail">
+                          <a href="{{ route('menu.show',$menu->id) }}" class="btn btn-gradient"><span>編集・削除</span></a>
+                        </div>
                     </div>
             @endforeach
         </div>
