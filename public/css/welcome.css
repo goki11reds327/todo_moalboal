@@ -27,11 +27,15 @@
 }
 
 .top-login{
+
+}
+
+.top-login-text{
     font-size: 30px;
     color: #1569BD;
     font-family: 'Archivo Black', sans-serif;
+    text-decoration-line:none ;
 }
-
 
 .shopping-cart{
     transform: rotate(15deg);
