@@ -35,6 +35,13 @@ function store(Request $request)
 
     return redirect()->route('menu.index');
 }
+
+function show($id)
+{
+    $menu = Menu::find($id);
+
+    return view('menu.show',['menu'=>$menu]);
+}
     //
 public function showMenuPage()
 {
