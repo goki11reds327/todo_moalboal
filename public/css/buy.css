@@ -39,9 +39,9 @@
 }
 
 
-.tobuylist-text{
+/* .buylist-text{
     display: flex;
-}
+} */
 
 html {
     -webkit-box-sizing: border-box;
@@ -118,14 +118,21 @@ html {
     }
 }
 
-.date-box,
-.tobuylist-box {
+/* .date-box,
+.buylist-box {
     display: flex;
     justify-content: center;
-    height: 100vh; /* 画面全体の高さに対して中央揃え */
-}
+    height: 100vh; 画面全体の高さに対して中央揃え
+} */
 
-.date-box p,
-.tobuylist-box p {
+/* .date-box p,
+.buylist-box p {
     font-weight: bold;
+} */
+
+.buy-line{
+    display:flex;
+}
+.buy-line > div{
+    justify-content: row;
 }

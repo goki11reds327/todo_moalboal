@@ -34,7 +34,7 @@
                 {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
             </div>
             @foreach($buys as $buy)
-            <div class="form-check">
+            <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label buylist-text" for="flexCheckDefault">
@@ -51,12 +51,12 @@
                                 </select>
                                 </label>
                         </div>
-                        <div class="destroy-btn">
+                        {{-- <div class="destroy-btn">
                             <form action="{{ route('destroy', [$buy->id]) }}" method="post">
                             @csrf
                             <input type="submit" value="削除">
                             </form>
-                        </div style="padding:10px 40px">
+                        </div style="padding:10px 40px"> --}}
                 @endforeach
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
@@ -67,12 +67,13 @@
                 {{-- {{ $buys->links() }}   pagination system --}}
         </div>
 
-        <form action="/buy/index" method="post">
+        <form action="{{ route('buy.store') }}" method="post">
             @csrf
             <div class="post-box">
                 <input type="text" name="ingredient" placeholder="具材名">
                 <input type="text" name="amount" placeholder="必要数量">
                 <input type="text" name="place" placeholder="買う場所">
+                <input type="file" name="item_image" placeholder="具材イメージ">
                 <button type="submit" class="submit-btn">必要具材追加</button>
             </div>
         </form>

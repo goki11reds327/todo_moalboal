@@ -29,7 +29,11 @@ Route::get('/menu/create', [App\Http\Controllers\MenuController::class, 'create'
 Route::post('/menu/store', [App\Http\Controllers\MenuController::class, 'store'])->name('menu.store');
 Route::get('/menu/{id}', [App\Http\Controllers\MenuController::class, 'show'])->name('menu.show');
 
-Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
+
 Route::get('/user/show/{id}', [UserController::class, 'show'])->name('show');
 Route::get('/user/show1/{id}', [UserController::class, 'show1'])->name('show1');
 Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
+
+
+Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
+Route::post('/buy/store',[App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');

@@ -15,11 +15,11 @@ class BuyController extends Controller
     return view('buy.index',['buys'=>$buys]);
 }
 
-    public function postbuy(Request $request)
+    public function store(Request $request)
     {
         $validator = $request->validate([
             'ingredient' => ['required', 'string', 'max:30'],
-            'amount' => ['required', 'string', 'max:3'],
+            'amount' => ['required', 'string', 'max:10'],
             'place' => ['required', 'string', 'max:30'],
             'item_image' => ['string']
             
@@ -42,6 +42,6 @@ class BuyController extends Controller
         // dd($tweet);
         $buy->delete();
 
-        return redirect()->route('buy/index');
+        return redirect()->route('buy.index');
     }
 }
