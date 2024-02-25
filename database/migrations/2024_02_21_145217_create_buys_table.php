@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('toBuys', function (Blueprint $table) {
+        Schema::create('buys', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->boolean('checkbox');
@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('place');
             $table->foreignId('user_id')->constrained;
             $table->text('item_image');
-            $table->foreignId('toBuy_id')->constrained;
+            $table->foreignId('buy_id')->constrained;
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('toBuys');
+        Schema::dropIfExists('buys');
     }
 };

@@ -4,20 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\ToBuy;
+use App\Models\Buy;
 
-class ToBuyController extends Controller
+class BuyController extends Controller
 {
     //
-    public function showToBuyPage()
-    {
-        $toBuys = ToBuy::latest()->get();
-        dd($toBuys);
+    function index()
+{
+    $buys = Buy::all();
+    return view('buy.index',['buys'=>$buys]);
+}
 
-        return view('toBuy', ['toBuys' => $toBuys]);
-    }
-
-    public function postToBuy(Request $request)
+    public function postbuy(Request $request)
     {
         $validator = $request->validate([
             'ingredient' => ['required', 'string', 'max:30'],
@@ -27,7 +25,7 @@ class ToBuyController extends Controller
             
         ]);
         // dd($request);
-        ToBuy::create([
+        Buy::create([
             'ingredient' => $request->ingredient, 
             'amount' => $request->amount,
             'place' => $request->place,
@@ -40,10 +38,10 @@ class ToBuyController extends Controller
     public function destroy($id)
     {
         // dd($id);
-        $toBuy = ToBuy::find($id);
+        $buy = Buy::find($id);
         // dd($tweet);
-        $toBuy->delete();
+        $buy->delete();
 
-        return redirect()->route('tobuy');
+        return redirect()->route('buy/index');
     }
 }
