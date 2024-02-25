@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y0V7aUpIOH3pXxXn9TCeS5qXfddE1yCoeVA3ieh5P0wFegzkE8MKChS/N9eX7KSj" crossorigin="anonymous">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('/css/tobuy.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/buy.css') }}">
 </head>
 <body>
     <header>
@@ -15,8 +15,8 @@
             <button class="top-button">top</button>
         </div>
         <div class="menu-bottom">
-            <div>{{ Auth::user()->name }} さん</div>
-            <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image) }}" alt=""></div>
+            {{-- <div>{{ Auth::user()->name }} さん</div> --}}
+            {{-- <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image) }}" alt=""></div> --}}
             <div class="display_btn">
                 <a href="#" class="btn btn-gradient" onclick="showDiv(1)"><span>１日</span></a>
                 <a href="#" class="btn btn-gradient" onclick="showDiv(3)"><span>３日</span></a>
@@ -27,20 +27,20 @@
     </header>
     <main>
         <div class="date-box">
-            <p>{{ Auth::menu()->title }}</p> {{-- menuのタイトル表示 --}}
+            {{-- <p>{{ Auth::menu()->title }}</p> menuのタイトル表示 --}}
         </div>
-        <div class="tobuylist-box"> 
+        <div class="buylist-box"> 
             <div>
-                <p>{{ Auth::menu()->comment }}</p> {{-- menuのコメント表示 --}}
+                {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
             </div>
-            @foreach($toBuys as $toBuy)
+            @foreach($buys as $buy)
             <div class="form-check">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label tobuylist-text" for="flexCheckDefault">
-                        <div class="ingredients">{{ $toBuy->ingredient }}</div>
-                        <div class="amount">{{ $toBuy->amount }}</div>
-                        <div class='wherebuy'>{{ $toBuy->place }}</div>
+                    <label class="form-check-label buylist-text" for="flexCheckDefault">
+                        <div class="ingredients">{{ $buy->ingredient }}</div>
+                        <div class="amount">{{ $buy->amount }}</div>
+                        <div class='wherebuy'>{{ $buy->place }}</div>
                         <div class="mb-3 whobuy">{{-- 使ったboostrap https://bootstrap-guide.com/forms/select --}}
                                 <label for="exampleFormSelect1" class="form-label"></label>
                                 <select class="form-select" id="exampleFormSelect1">
@@ -52,7 +52,7 @@
                                 </label>
                         </div>
                         <div class="destroy-btn">
-                            <form action="{{ route('destroy', [$toBuy->id]) }}" method="post">
+                            <form action="{{ route('destroy', [$buy->id]) }}" method="post">
                             @csrf
                             <input type="submit" value="削除">
                             </form>
@@ -64,10 +64,10 @@
                     カレー
                     </label>
                 </div>
-                {{ $toBuys->links() }}   {{-- pagination system --}}
+                {{-- {{ $buys->links() }}   pagination system --}}
         </div>
 
-        <form action="/tobuy" method="post">
+        <form action="/buy/index" method="post">
             @csrf
             <div class="post-box">
                 <input type="text" name="ingredient" placeholder="具材名">
