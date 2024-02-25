@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained;
             $table->text('comment');
-            $table->foreignId('toBuy_id');
+            $table->foreignId('buy_id');
             $table->timestamps();
         });
     }
