@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=archivo-black:400" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/earlyaccess/hannari.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 
 </head>
 <body>
@@ -30,14 +30,17 @@
     <main>
         <div id="app" class="container">
             @foreach($menus as $menu)
-                <div class="item monday">
-                    <a href="#">
-                        <p class="day-number">{{ $menu->date }} </p>
-                        <p class="day-title">{{ $menu->title }}</p>
-                        <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像" >
-                    </a>
-                    <div class="content">{{ $menu->content }}</div>
-                </div>
+                    <div class="item monday">
+                        <a href="#" class="box">
+                            <p class="day-number">{{ $menu->date }} </p>
+                            <p class="day-title">{{ $menu->title }}</p>
+                            <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像" >
+                        </a>
+                        <div class="content">
+                            <p class="comment-title">comment</p>
+                            {{ $menu->content }}
+                        </div>
+                    </div>
             @endforeach
         </div>
     </main>
