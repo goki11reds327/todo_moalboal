@@ -1,127 +1,53 @@
-/* 顔写真 */
-.self_image{
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    background-color: gray;
-    overflow: hidden;
+body{
+  background-color: #FCFFE7;
 }
-
-.self_image > img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.new_post_btn {
-  margin-right: 20px; /* 適切なマージンを設定して右端に寄せる */
-}
-
 /* ここからボタンの修飾 */
 .display_btn{
-    width:80%;
     display: flex;
-    margin:10px auto;
     text-align: center;
     justify-content: space-between;
-    
-}
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 62.5%;
+    background-color: rgb(95, 70, 48);
+    width: 100vw;
+    height: 4em;
+    font:24px;
+    position: fixed;
+    top: 0;
+    z-index: 2;
 }
 
-.btn,
-a.btn,
-button.btn {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.5;
-  position: relative;
+.btn{
+  margin: 0.5em;
+  color:white;
+  font-family: "M PLUS 1p";
+  font-size: 24px;
+  text-decoration-line:none ;
+  transition: .3s;
+}
+
+.btn:hover{
+  transform: scale(1.1);
+}
+
+.new-btn{
+  color:rgb(95, 70, 48);
+  font-size: 16px;
+  font-weight: bold;
+  background: white;
+  text-decoration-line:none ;
+  padding: 18px 30px;
+  border: rgb(95, 70, 48) 2px solid;
+  border-radius: 6px;
   display: inline-block;
-  padding: 1rem 4rem;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  color: #212529;
-  border-radius: 0.5rem;
+  transition: .3s;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  font-family: 'Archivo Black', sans-serif;
 }
-
-a.btn-gradient {
-  font-weight: normal;
-
-  color: #fff;
-  border-radius: 0;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(40%, #ff3cac),
-    to(#562b7c)
-  );
-  background-image: -webkit-linear-gradient(left, #ff3cac 40%, #562b7c 100%);
-  background-image: linear-gradient(90deg, #ff3cac 40%, #562b7c 100%);
+.new-btn:hover{
+  transform: scale(1.1);
 }
-
-a.btn-gradient:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  content: "";
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#ff3cac),
-    color-stop(#562b7c),
-    to(#2b86c5)
-  );
-
-  background-image: -webkit-linear-gradient(left, #ff3cac, #562b7c, #2b86c5);
-
-  background-image: linear-gradient(90deg, #ff3cac, #562b7c, #2b86c5);
-}
-
-a.btn-gradient span {
-  position: relative;
-  z-index: 1;
-}
-
-a.btn-gradient:hover {
-  color: #fff;
-}
-
-a.btn-gradient:hover:after {
-  opacity: 0;
-}
-
-a.btn-gradient {
-    border-radius: 100vh;
-  }
 
 /* ここから写真の箱の修飾 */
 
@@ -134,32 +60,80 @@ a.btn-gradient {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 70px 0 0 0;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
 }
 
 .item {
-  position: relative; /* 相対位置指定 */
-  width: 100%; /* Full width initially */
-  padding: 0px;
-  box-sizing: border-box;
-  border: 1px solid #ccc; /* Border for visualization */
-  margin: 10px;
-  text-align: center;
-    
+  margin: 1em auto;
+/* ボックス背景色 */
+	padding:2em 1em 1em; /* ボックス内側余白 */
+	position:relative; /*配置(ここを基準に)*/
+  width: 80%;
+  background-color: #E0D8B0;
 }
+
+
 .item img {
-  max-width: 100%;
+  width: 80vw;
+  max-width: 400px;
   height: auto;
 }
 
-.item p {
-  position: absolute; /* 絶対位置指定 */
-  top: 0; /* 上端からの位置を0に設定 */
-  left: 0; /* 左端からの位置を0に設定 */
-  width: 100%; /* Full width of the container */
-  transform: translate(0, 0); /* テキストを元の位置に戻す */
-  margin: 0; /* デフォルトのマージンを除去 */
-  color: #fff; /* テキストの色を調整（任意） */
-  font-size: 18px; /* テキストのフォントサイズを調整（任意） */
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* テキストに影を追加（任意） */
-  background-color: #212529;
+.item > a{
+  text-decoration-line:none ;
+}
+
+.day-title{
+  text-align: center;
+  font-family: "M PLUS 1p";
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(95, 70, 48)
+}
+
+.day-number{
+  font-family: 'Archivo Black', sans-serif;
+  background-color: rgba(255,255,255,.5);/* テープ背景色と透過*/
+	border-left: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ左*/
+	border-right: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ右*/
+	box-shadow: 0 0 5px rgba(0,0,0,0.2); /*テープ影*/
+	transform: rotate(-2deg);/*テープの傾き*/
+	font-size: 1em;/*タイトル文字の大きさ*/
+	color: rgb(95, 70, 48); /*タイトル文字色 */
+	padding: 10px 20px;/*タイトルの余白*/
+	line-height: 1;/*タイトルの行の高さ*/
+	position:absolute;/*配置(ここを動かす)*/
+	top: -15px; /*上から（-10px）移動*/
+	left: 20px; /*左から(20px)移動*/
+}
+
+
+
+.content{
+	margin: 1em auto; /* ボックスの余白 */
+	background-color:#fff; /* ボックス背景色 */
+	padding:1em; /* ボックス内側余白 */
+	position:relative; /* 配置(ここを基準に) */
+	border: 2px solid rgb(95, 70, 48);/* ボックスの線 (太さ　種類　色)*/
+}
+
+.comment-title{
+  color: rgb(95, 70, 48);
+  font-family: 'Archivo Black', sans-serif;
+  background-color:#fff; /* タイトル背景色 */
+	font-size: 1em;/* タイトル文字の大きさ */
+	font-weight:800;
+	padding: 0 5px;/*タイトルの余白*/
+	line-height: 1;/*タイトルの行の高さ*/
+	position:absolute;	/* 配置(ここを動かす) */
+	top: -5px; /*上から（-5px）移動*/
+	left: 20px; /*左から(20px)移動*/
+
 }
