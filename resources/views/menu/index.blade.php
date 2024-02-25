@@ -29,7 +29,12 @@
                         <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像">
                     </a>
                     <div class="content">{{ $menu->content }}</div>
+
+                    <div class="detail">
+                        <a href="{{ route('menu.show',$menu->id) }}" class="btn btn-gradient"><span>編集・削除</span></a>
+                    </div>
                 </div>
+                
             @endforeach
         </div>
     </main>
