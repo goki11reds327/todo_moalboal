@@ -10,8 +10,13 @@ class MenuController extends Controller
 {   
 function index()
 {
-    $menus = Menu::all();
-    return view('menu.index',['menus'=>$menus]);
+    // $menus = Menu::all();
+    // return view('menu.index',['menus'=>$menus]);
+    // Retrieve paginated menu items from the database
+    $menus = Menu::orderBy('created_at','desc')->paginate(7); // Retrieve 7 menu items per page
+    
+    // Pass the paginated menu items to the view
+    return view('menu.index', compact('menus'));
 }
 
 function create()
