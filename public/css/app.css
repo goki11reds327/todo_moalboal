@@ -3,6 +3,10 @@
 body{
   background-color: #FCFFE7;
 }
+
+#username{
+  margin-top: 70px;
+}
 /* ここからボタンの修飾 */
 .display_btn{
     display: flex;
