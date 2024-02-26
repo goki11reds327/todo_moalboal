@@ -21,13 +21,19 @@ function create()
 
 function store(Request $request)
 {
+    $menu = new Menu;  //データベースに保存
     // $pre_image = request()->file('pre_image')->getClientOriginalName();
     // request()->file('pre_image')->storeAs('storage/img',$pre_image);
+    if ($request->hasFile('pre_image')) {
+        $image = $request->file('pre_image');
+        $imageName = $image->getClientOriginalName();
+        // $image->storeAs('images', $imageName, 'public/img');
+        $image->storeAs('public/img', $imageName);
+        $menu -> pre_image = $imageName;
+    }
 
-    $menu = new Menu;  //データベースに保存
     $menu -> date = $request -> date;
     $menu -> title = $request -> title;
-    $menu -> pre_image = $request -> pre_image;
     $menu -> content = $request -> content;
     $menu -> user_id = Auth::id();
 
@@ -52,15 +58,35 @@ function edit($id)
 
 function update(Request $request,$id) //どのIDを紐づけているのか$idで指定
 {
-    $menu = Menu::find($id);
+    // Validate the request data
+    $request->validate([
+        'date' => 'required',
+        'title' => 'required',
+        'content' => 'required',
+    ]);
 
-    $menu -> date = $request -> date;
-    $menu -> title = $request -> title;
-    $menu -> pre_image = $request -> pre_image;
-    $menu -> content = $request -> content;
-    $menu -> save();
+    // Find the menu entry by its ID
+    $menu = Menu::findOrFail($id);
 
-    return view('menu.show',['menu'=>$menu]);
+    // Update the menu entry with the new data
+    $menu->date = $request->date;
+    $menu->title = $request->title;
+    $menu->content = $request->content;
+    $menu->user_id = Auth::id();
+
+    // Check if a new image file is uploaded
+    if ($request->hasFile('pre_image')) {
+        $image = $request->file('pre_image');
+        $imageName = $image->getClientOriginalName();
+        $image->storeAs('public/img', $imageName);
+        $menu->pre_image = $imageName;
+    }
+
+    // Save the updated menu entry
+    $menu->save();
+
+    // Redirect the user to the menu show page
+    return redirect()->route('menu.show', ['id' => $menu->id]);
 }
 
 function destroy($id)
