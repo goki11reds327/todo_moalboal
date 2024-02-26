@@ -22,7 +22,7 @@ function create()
 function store(Request $request)
 {
     // $pre_image = request()->file('pre_image')->getClientOriginalName();
-    // request()->file('pre_image')->storeAs('store/img',$pre_image);
+    // request()->file('pre_image')->storeAs('storage/img',$pre_image);
 
     $menu = new Menu;  //データベースに保存
     $menu -> date = $request -> date;
