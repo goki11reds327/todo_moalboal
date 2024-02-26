@@ -1,3 +1,5 @@
+/* menu/indexとmenu/showで使用してます */
+
 body{
   background-color: #FCFFE7;
 }
@@ -137,4 +139,23 @@ body{
 	top: -5px; /*上から（-5px）移動*/
 	left: 20px; /*左から(20px)移動*/
 
+}
+
+/* ＝＝＝＝＝＝＝こっから下menu/show用 ＝＝＝＝＝＝＝*/
+.show-btn{
+  color: white;
+  background-color:rgb(95, 70, 48) ;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5%;
+  text-decoration: none;
+  margin: 20px;
+}
+
+.show-btn:hover{
+  scale: 1.1;
+}
+
+.show-btns{
+  display: flex;
 }
