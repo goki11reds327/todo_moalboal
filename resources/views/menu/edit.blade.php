@@ -12,43 +12,60 @@
     <header>
         {{-- <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image) }}" alt=""></div> --}}
     </header>
-
-    <main>
-        <form action="{{ route('menu.update',$menu->id) }}" method="POST">
-            @csrf
-            @method('put')
-            <!-- 日付入力欄 -->
-            <div>
-                <label for="date">Date:</label>
-                <input type="date" id="date" value="{{ $menu->date }}" name="date">
-            </div>
+    
+<main>
+    <form action="{{ route('menu.update',$menu->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('put')
+        <!-- 日付入力欄 -->
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" value="{{ $menu->date }}" name="date">
+        </div>
 
             <!-- 料理名入力欄 -->
             <div>
                 <label for="title">Menu:</label>
                 <input type="title" id="title" value="{{ $menu->title }}" name="title">
             </div>
-
-            <!-- 写真投稿欄 -->
-            <div>
-                <label for="pre_image">Photo:</label>
-                <div class="original-photo">
-                    <p>元の画像</p>
-                    <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像" >
-                </div>
-                <input type="file" id="pre_image" name="pre_image" value="{{ $menu->pre_image }}" accept="image/*">
-            </div>
+            
+        <!-- 写真投稿欄 -->
+        <div>
+            <label for="pre_image">Photo:</label>
+            <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像" id="image" style="width: 180px">
+            <input type="file" id="pre_image" name="pre_image" value="{{ $menu->pre_image }}" accept="image/*" onchange="changeImage()">
+        </div>
 
             <!-- コメント記入欄 -->
             <div>
                 <label for="content">Comment:</label>
                 <textarea id="content" name="content" rows="4" cols="50">{{ $menu ->content }}</textarea>
             </div>
+            
+        <!-- updateボタン -->
+        <div>
+            <button id="addButton">update</button>
+        </div>        
+    </form>
+</main>
+<script>
+    function changeImage() {
+        const input = document.getElementById('pre_image');
+        const image = document.getElementById('image');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                image.src = e.target.result;
+                input.setAttribute('value', input.files[0].name);
+            };
 
-            <!-- updateボタン -->
-            <div>
-                <button id="addButton" class="add-button">update</button>
-            </div>        
-        </form>
-    </main>
+            reader.readAsDataURL(input.files[0]);
+        }
+        console.log(input.files[0].name)
+
+    }
+</script>
+
 </body>
