@@ -42,3 +42,8 @@ Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
 
 Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
 Route::post('/buy/store',[App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
+
+Route::get('/stock',[App\Http\Controllers\StockController::class, 'index'])->name('stock.index');
+Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'create'])->name('stock.create');
+
+Route::post('/stock/store',[App\Http\Controllers\StockController::class, 'store'])->name('stock.store');
