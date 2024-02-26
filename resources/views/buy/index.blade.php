@@ -42,6 +42,7 @@
                         <div class="amount">必要数量：{{ $buy->amount }}</div>
                         <div class='wherebuy'>購入予定場所：{{ $buy->place }}</div>
                         <div class='who_buy'>買って帰る人：{{ $buy->who_buy }}</div>
+                        <img src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
                         {{-- <div class="destroy-btn">
                             <form action="{{ route('destroy', [$buy->id]) }}" method="post">
                             @csrf
@@ -59,14 +60,14 @@
                 {{-- {{ $buys->links() }}   pagination system --}}
         
 
-        <form action="{{ route('buy.store') }}" method="post">
+        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
             @csrf
             <div class="post-box">
                 <input type="text" name="ingredient" placeholder="具材名">
                 <input type="text" name="amount" placeholder="必要数量">
                 <input type="text" name="place" placeholder="買う場所">
                 <input type="text" name="who_buy" placeholder="買って帰る人">
-                <input type="file" name="item_image" placeholder="具材イメージ">
+                <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
                 <button type="submit" class="submit-btn">必要具材追加</button>
             </div>
         </form>
