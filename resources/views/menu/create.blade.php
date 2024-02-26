@@ -15,7 +15,7 @@
 
     <main>
         <form action="{{ route('menu.store') }}" method="POST">
-            <p>New To Buy List</p>
+            <h1>New To Buy List</h1>
             @csrf
             <!-- 日付入力欄 -->
             <div>
