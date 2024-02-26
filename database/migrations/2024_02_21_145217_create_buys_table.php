@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('ingredient');
             $table->string('amount');
             $table->string('place');
+            $table->string('who_buy');
             // $table->foreignId('user_id')->constrained;
             $table->text('item_image');
             // $table->foreignId('menu_id')->constrained;

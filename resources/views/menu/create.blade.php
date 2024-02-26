@@ -14,8 +14,8 @@
     </header>
 
     <main>
-        <form action="{{ route('menu.store') }}" method="POST">
-            <h1>New To Buy List</h1>
+        <form action="{{ route('menu.store') }}" method="POST"  enctype="multipart/form-data">
+            <p>New To Buy List</p>
             @csrf
             <!-- 日付入力欄 -->
             <div>
@@ -32,7 +32,7 @@
             <!-- 写真投稿欄 -->
             <div>
                 <label for="pre_image">Photo:</label>
-                <input type="file" id="pre_image" name="pre_image" accept="image/*">
+                <input type="file" id="pre_image" name="pre_image" accept="img/*">
             </div>
 
             <!-- コメント記入欄 -->

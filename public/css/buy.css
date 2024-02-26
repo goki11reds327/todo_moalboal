@@ -130,9 +130,11 @@ html {
     font-weight: bold;
 } */
 
-.buy-line{
+.form-check{
     display:flex;
+    /* justify-content: space-between; */
+    
 }
 .buy-line > div{
-    justify-content: row;
+    margin-right:20px;
 }

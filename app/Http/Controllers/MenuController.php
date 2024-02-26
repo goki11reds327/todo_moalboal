@@ -21,13 +21,19 @@ function create()
 
 function store(Request $request)
 {
-    // $pre_image = request()->file('pre_image')->getClientOriginalName();
-    // request()->file('pre_image')->storeAs('store/img',$pre_image);
-
     $menu = new Menu;  //データベースに保存
+    // $pre_image = request()->file('pre_image')->getClientOriginalName();
+    // request()->file('pre_image')->storeAs('storage/img',$pre_image);
+    if ($request->hasFile('pre_image')) {
+        $image = $request->file('pre_image');
+        $imageName = $image->getClientOriginalName();
+        // $image->storeAs('images', $imageName, 'public/img');
+        $image->storeAs('public/img', $imageName);
+        $menu -> pre_image = $imageName;
+    }
+
     $menu -> date = $request -> date;
     $menu -> title = $request -> title;
-    $menu -> pre_image = $request -> pre_image;
     $menu -> content = $request -> content;
     $menu -> user_id = Auth::id();
 
