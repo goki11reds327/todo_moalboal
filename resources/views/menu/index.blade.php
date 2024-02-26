@@ -46,6 +46,8 @@
                         </div>
                     </div>
             @endforeach
+
+            {{ $menus->links() }}
         </div>
     </main>
 
