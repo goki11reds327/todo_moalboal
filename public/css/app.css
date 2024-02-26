@@ -28,14 +28,15 @@ body{
   transform: scale(1.1);
 }
 
+
 .new-btn{
   color:rgb(95, 70, 48);
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
   background: white;
   text-decoration-line:none ;
   padding: 18px 30px;
-  border: rgb(95, 70, 48) 2px solid;
+  border: rgb(95, 70, 48) 5px solid;
   border-radius: 6px;
   display: inline-block;
   transition: .3s;
