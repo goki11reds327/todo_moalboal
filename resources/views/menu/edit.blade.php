@@ -14,7 +14,7 @@
     </header>
 
 <main>
-    <form action="{{ route('menu.update',$menu->id) }}" method="POST">
+    <form action="{{ route('menu.update',$menu->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <!-- 日付入力欄 -->
@@ -32,8 +32,8 @@
         <!-- 写真投稿欄 -->
         <div>
             <label for="pre_image">Photo:</label>
-            <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像" >
-            <input type="file" id="pre_image" name="pre_image" value="{{ $menu->pre_image }}" accept="image/*">
+            <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像" id="image" style="width: 180px">
+            <input type="file" id="pre_image" name="pre_image" value="{{ $menu->pre_image }}" accept="image/*" onchange="changeImage()">
         </div>
 
         <!-- コメント記入欄 -->
@@ -48,3 +48,23 @@
         </div>        
     </form>
 </main>
+<script>
+    function changeImage() {
+        const input = document.getElementById('pre_image');
+        const image = document.getElementById('image');
+        
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                image.src = e.target.result;
+                input.setAttribute('value', input.files[0].name);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+        console.log(input.files[0].name)
+
+    }
+</script>
+</body>
