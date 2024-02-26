@@ -73,5 +73,20 @@ class RegisterController extends Controller
             'user_image' => $user_image,
             'password' => Hash::make($data['password']),
         ]);
+        // $user = new User;
+        // if ($data['user_image']) {
+        //     $image = $data['user_image'];
+        //     $imageName = $image->getClientOriginalName();
+        //     $image->storeAs('images', $imageName, 'public/img');
+        //     $image->storeAs('public/img', $imageName);
+        //     $user -> user_image = $imageName;
+        // }
+        // $user -> name = $data['name'];
+        // $user -> email = $data['email'];
+        // $user -> password = $data['password'];
+
     }
+    
+
+
 }
