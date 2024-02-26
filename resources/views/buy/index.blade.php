@@ -37,35 +37,27 @@
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label buylist-text" for="flexCheckDefault">
-                        <div class="ingredients">{{ $buy->ingredient }}</div>
-                        <div class="amount">{{ $buy->amount }}</div>
-                        <div class='wherebuy'>{{ $buy->place }}</div>
-                        <div class="mb-3 whobuy">{{-- 使ったboostrap https://bootstrap-guide.com/forms/select --}}
-                                <label for="exampleFormSelect1" class="form-label"></label>
-                                <select class="form-select" id="exampleFormSelect1">
-                                    <option selected>誰</option>
-                                    <option value="1">父</option>
-                                    <option value="2">母</option>
-                                    <option value="3">姉</option>
-                                </select>
-                                </label>
-                        </div>
+                    <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
+                        <div class="ingredients">必要具材：{{ $buy->ingredient }}</div>
+                        <div class="amount">必要数量：{{ $buy->amount }}</div>
+                        <div class='wherebuy'>購入予定場所：{{ $buy->place }}</div>
+                        <div class='who_buy'>買って帰る人：{{ $buy->who_buy }}</div>
                         {{-- <div class="destroy-btn">
                             <form action="{{ route('destroy', [$buy->id]) }}" method="post">
                             @csrf
                             <input type="submit" value="削除">
                             </form>
                         </div style="padding:10px 40px"> --}}
-                @endforeach
+            </div>
+            @endforeach
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                    <label class="form-check-label" for="flexCheckChecked">
+                    {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
+                    {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
                     カレー
-                    </label>
+                    {{-- </label> --}}
                 </div>
                 {{-- {{ $buys->links() }}   pagination system --}}
-        </div>
+        
 
         <form action="{{ route('buy.store') }}" method="post">
             @csrf
@@ -73,6 +65,7 @@
                 <input type="text" name="ingredient" placeholder="具材名">
                 <input type="text" name="amount" placeholder="必要数量">
                 <input type="text" name="place" placeholder="買う場所">
+                <input type="text" name="who_buy" placeholder="買って帰る人">
                 <input type="file" name="item_image" placeholder="具材イメージ">
                 <button type="submit" class="submit-btn">必要具材追加</button>
             </div>
