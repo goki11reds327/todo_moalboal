@@ -21,6 +21,7 @@ class BuyController extends Controller
             'ingredient' => ['required', 'string', 'max:30'],
             'amount' => ['required', 'string', 'max:10'],
             'place' => ['required', 'string', 'max:30'],
+            'who_buy' => ['required', 'string', 'max:10'],
             'item_image' => ['string']
             
         ]);
@@ -29,6 +30,7 @@ class BuyController extends Controller
             'ingredient' => $request->ingredient, 
             'amount' => $request->amount,
             'place' => $request->place,
+            'who_buy' => $request->who_buy,
             'item_image' => $request->item_image
         ]);
 
