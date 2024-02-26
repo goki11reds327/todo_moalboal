@@ -9,7 +9,7 @@ class Buy extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'ingredient','amount','place','item_image'
+        'ingredient','amount','place','item_image','who_buy'
     ];
     
     // public function menu()
