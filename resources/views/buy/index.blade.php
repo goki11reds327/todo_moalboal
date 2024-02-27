@@ -17,12 +17,11 @@
         <div class="menu-bottom">
             <div>{{ Auth::user()->name }} さん</div>
             <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
-            <div class="display_btn">
+            {{-- <div class="display_btn">
                 <a href="#" class="btn btn-gradient" onclick="showDiv(1)"><span>１日</span></a>
                 <a href="#" class="btn btn-gradient" onclick="showDiv(3)"><span>３日</span></a>
                 <a href="#" class="btn btn-gradient" onclick="showDiv(7)"><span>１週間</span></a>
-            </div>
-            </div>
+            </div> --}}
         </div>
     </header>
     <main>
@@ -33,6 +32,7 @@
             <div>
                 {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
             </div>
+            <p>rrr</p>
             @foreach($buys as $buy)
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
@@ -71,6 +71,16 @@
                 <button type="submit" class="submit-btn">必要具材追加</button>
             </div>
         </form>
+
+        @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
     </main>
 </body>

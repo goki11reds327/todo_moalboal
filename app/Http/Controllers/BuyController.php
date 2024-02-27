@@ -22,8 +22,8 @@ class BuyController extends Controller
             'ingredient' => ['required', 'string', 'max:30'],
             'amount' => ['required', 'string', 'max:10'],
             'place' => ['required', 'string', 'max:30'],
-            'who_buy' => ['required', 'string', 'max:10'],
-            'item_image' => ['string']
+            'who_buy' => ['required', 'string', 'max:10']
+            // 'item_image' => ['string']
             
         ]);
 
@@ -48,8 +48,10 @@ class BuyController extends Controller
         $buy -> place = $request -> place;
         $buy -> who_buy = $request -> who_buy;
 
+        $buy -> save();
 
-        return back();
+
+        return redirect()->route('buy.index');
     }
 
     public function destroy($id)
