@@ -30,54 +30,69 @@
 
     <main>
         <div id="app" class="container">
+
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>           
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>       
+              </div>
+            @endif
            
             <div class="stock_title">
-                <a href="#" class="box title">
+                <p class="box title">
                     冷蔵庫のあまりものリスト
-                </a>
+                </p>
             </div>
-            <div>
-                <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    ＋アイテムの追加
-                  </button>
-            </div>
+         
             <div class="item">
                
-                <a href="#" class="box">
+                <p class="box">
                     ★肉・魚・卵など
-                </a>
+                </p>
                 @foreach($stocks as $stock)
-                 @if($stock->is_meat) 
-                 <div class="stock-item" id="stock-item-{{ $stock->id }}">
-                    <p class='text-center'> {{  $stock->あまりもの}}</p>
-                     <!-- 追加: 削除ボタン -->
-                     <button onclick="deleteStockItem('{{ $stock->id }}')">Delete</button>
-                 @endif
-                @endforeach
-                {{-- <button onclick="addNewItem('meatFishEggs')">新規追加</button>
-                <input type="text" id="meatFishEggsInput" placeholder="アイテムを入力"> --}}
-                <div class="new_post_btn">
-                    {{-- <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        ＋アイテムの追加
-                      </button> --}}
-                    {{-- <a href="/stock/create" class="box" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        >＋アイテムの追加</a> --}}
-                        
+                @if($stock->is_meat) 
+                  <form method="POST" action="{{ route('stock.destroy', $stock->id) }}">
+                    @method('delete')
+                    @csrf
+                    <div class="stock-item" id="stock-item-{{ $stock->id }}">
+                      <div class="item-content"> 
+                        <p class='text-center'>
+                            <button onclick="deleteStockItem('{{ $stock->id }}')">×</button>
+                            {{ $stock->あまりもの }}</p>
+                      </div>
+                    </div>
+                  </form>
+                @endif
+                    @endforeach
+                    {{-- <button onclick="addNewItem('meatFishEggs')">新規追加</button>
+                    <input type="text" id="meatFishEggsInput" placeholder="アイテムを入力"> --}}
+                    <div class="new_post_btn">
+                        {{-- <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            ＋アイテムの追加
+                          </button> --}}
+                        {{-- <a href="/stock/create" class="box" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            >＋アイテムの追加</a> --}}                         
+                    </div>
+                    
                 </div>
-                
-            </div>
-            <div class="item">
-                <a href="#" class="box">
+                 </form>
+                            <div class="item">
+                <p class="box">
                     ★野菜・果物など
-                </a>
+                </p>
                 @foreach($stocks as $stock)
                  {{-- <p class='text-center'> {{  $stock->あまりもの}}</p> --}}
                  @if($stock->is_fruit) 
-                 <div class="stock-item" id="stock-item-{{ $stock->id }}">
-                    <p class='text-center'> {{  $stock->あまりもの}}</p>
-                     <!-- 追加: 削除ボタン -->
-                     <button onclick="deleteStockItem('{{ $stock->id }}')">Delete</button>
-                 @endif
+                 <form method="POST" action="{{ route('stock.destroy',$stock->id) }}">
+                    @method('delete')
+                    @csrf
+                    <div class="item-content"> 
+                        <p class='text-center'>
+                            <button onclick="deleteStockItem('{{ $stock->id }}')">×</button>
+                            {{ $stock->あまりもの }}</p>
+                      </div>
+                         
+                     @endif
                     @endforeach
                 
                
@@ -119,6 +134,11 @@
                 </form>
             </div>
             
+        </div>
+        <div class=itembutton>
+            <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                ＋アイテムの追加
+              </button>
         </div>
 
         

@@ -1,157 +1,61 @@
-body{
-    background-color: #FCFFE7;
-  }
-  /* ここからボタンの修飾 */
-  .stock_title{
-      /* display: flex;
-      text-align: center;
-      justify-content: space-between;
-      width: 100vw;
-      height: 4em;
-      font:24px;
-      position: fixed;
-      top: 0;
-      z-index: 2; */
-      background-color: rgb(95, 70, 48);
-      color: white;
-      text-decoration: none;
-  }
+/* div#app.container のスタイル修正 */
+#app.container {
+  margin: 0; /* 左右の余白を0に設定 */
+  padding: 0;
+  background-color: #E0D8B0;
+}
 
-  .box{
-    text-align: center;
-    color: white;
-    text-decoration: none;
+/* stock_title のスタイル修正 */
+.stock_title {
+  width: 100%;
+  background-color: #8B4513; /* 茶色の背景色 */
+  color: white; /* 文字色を白に設定 */
+  padding: 10px; /* 適切なパディングを追加 */
+  text-align: center; /* テキストを中央揃え */
+  align-items: center;
+  margin: 0;
+}
 
-  .text-center{
-    text-align: center;
+/* アイテムの追加ボタンのスタイル修正 */
+/* ボタンボーダーのスタイル修正 */
+.box.btn {
+  display: inline-block; /* インラインブロック要素に設定 */
+  border: 2px solid #8B4513; /* ボーダーの色と幅を設定 */
+  background-color: transparent; /* 背景色を透明に設定 */
+  color: #8B4513; /* 文字色を茶色に設定 */
+  padding: 10px; /* 適切なパディングを追加 */
+  text-align: center; /* テキストを中央揃え */
+  cursor: pointer; /* ボタンのように見せるためにカーソルをポインターに設定 */
+  width: fit-content; /* 文字の幅にボタンの横幅を自動調整 */
+  margin-bottom: 20px; /* 適切なマージンを追加 */
+}
 
-  }
+/* item のスタイル修正 */
+.item {
+  margin: 0; /* 左右の余白を0に設定 */
+  padding: 2em 1em 1em; /* ボックス内側余白 */
+  position: relative; /* 配置(ここを基準に) */
+  width: 100%;
+  background-color: #E0D8B0;
+}
+
+/* スタイル修正 */
+/* スタイル修正 */
+.item-content p.text-center {
+  padding: 1px 6px; /* 上下左右のパディングを1px 6pxに変更 */
+  margin: 0;
+}
+
+
+.box{
+  text-align: center;
+  background-color: rgb(124, 118, 118);
+  color: white;
+}
+
+.itembutton{
+  text-align: right;
+}
 
 
 
-
-  }
-
-  
-  .btn{
-    margin: 0.5em;
-    color:white;
-    font-family: "M PLUS 1p";
-    font-size: 24px;
-    transition: .3s;
-  }
-  
-  .btn:hover{
-    transform: scale(1.1);
-  }
-  
-  .new-btn{
-    color:rgb(95, 70, 48);
-    font-size: 16px;
-    font-weight: bold;
-    background: white;
-    text-decoration-line:none ;
-    padding: 18px 30px;
-    border: rgb(95, 70, 48) 2px solid;
-    border-radius: 6px;
-    display: inline-block;
-    transition: .3s;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 2;
-    font-family: 'Archivo Black', sans-serif;
-  }
-  .new-btn:hover{
-    transform: scale(1.1);
-  }
-  
-  /* ここから写真の箱の修飾 */
-  
-  /* Add your styles here */
-  .hidden {
-      display: none;
-  }
-  
-  .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 70px 0 0 0;
-  }
-  
-  .box{
-    display: flex;
-    flex-direction: column;
-    justify-self: center;
-    align-items: center;
-  }
-  
-  .item {
-    margin: 1em auto;
-  /* ボックス背景色 */
-      padding:2em 1em 1em; /* ボックス内側余白 */
-      position:relative; /*配置(ここを基準に)*/
-    width: 80%;
-    background-color: #E0D8B0;
-  }
-  
-  
-  .item img {
-    width: 80vw;
-    max-width: 400px;
-    height: auto;
-  }
-  
-  .item > a{
-    text-decoration-line:none ;
-  }
-  
-  .day-title{
-    text-align: center;
-    font-family: "M PLUS 1p";
-    font-size: 25px;
-    font-weight: bold;
-    color: rgb(95, 70, 48)
-  }
-  
-  .day-number{
-    font-family: 'Archivo Black', sans-serif;
-    background-color: rgba(255,255,255,.5);/* テープ背景色と透過*/
-      border-left: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ左*/
-      border-right: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ右*/
-      box-shadow: 0 0 5px rgba(0,0,0,0.2); /*テープ影*/
-      transform: rotate(-2deg);/*テープの傾き*/
-      font-size: 1em;/*タイトル文字の大きさ*/
-      color: rgb(95, 70, 48); /*タイトル文字色 */
-      padding: 10px 20px;/*タイトルの余白*/
-      line-height: 1;/*タイトルの行の高さ*/
-      position:absolute;/*配置(ここを動かす)*/
-      top: -15px; /*上から（-10px）移動*/
-      left: 20px; /*左から(20px)移動*/
-  }
-  
-  
-  
-  .content{
-      margin: 1em auto; /* ボックスの余白 */
-      background-color:#fff; /* ボックス背景色 */
-      padding:1em; /* ボックス内側余白 */
-      position:relative; /* 配置(ここを基準に) */
-      border: 2px solid rgb(95, 70, 48);/* ボックスの線 (太さ　種類　色)*/
-  }
-  
-  .comment-title{
-    color: rgb(95, 70, 48);
-    font-family: 'Archivo Black', sans-serif;
-    background-color:#fff; /* タイトル背景色 */
-      font-size: 1em;/* タイトル文字の大きさ */
-      font-weight:800;
-      padding: 0 5px;/*タイトルの余白*/
-      line-height: 1;/*タイトルの行の高さ*/
-      position:absolute;	/* 配置(ここを動かす) */
-      top: -5px; /*上から（-5px）移動*/
-      left: 20px; /*左から(20px)移動*/
-  
-  }
-  
