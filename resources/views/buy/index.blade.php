@@ -6,11 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y0V7aUpIOH3pXxXn9TCeS5qXfddE1yCoeVA3ieh5P0wFegzkE8MKChS/N9eX7KSj" crossorigin="anonymous">
     <title>Document</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=archivo-black:400" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+
+    {{-- Style --}}
+    <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/buy.css') }}">
 </head>
 <body>
     <header>
-        <div class="buttons-top">
+        {{-- <div class="buttons-top">
             <button class="refrigerator-button">冷蔵庫</button>
             <button class="top-button">top</button>
         </div>
@@ -23,6 +30,14 @@
                 <a href="#" class="btn btn-gradient" onclick="showDiv(7)"><span>１週間</span></a>
             </div>
             </div>
+        </div> --}}
+        <div class="display_btn">
+            <span class="profile">
+                <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
+                {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
+            </span>
+            <a href="" class="btn">menu一覧</a>
+            <a href="" class="btn">冷蔵庫</a>
         </div>
     </header>
     <main>
