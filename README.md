@@ -1,10 +1,11 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+
 
 ## About ToDo Moalboal
 
 <p>
 Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリケーション
 </p>
+<p><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="100" alt="Laravel Logo"></a></p>
 
 
 ## How To Environment
@@ -24,4 +25,4 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 
 ## Start Page
-<img width="1679" alt="Start Page" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
+<img width="1679" alt="Start Page" width="100" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
