@@ -47,3 +47,5 @@ Route::get('/stock',[App\Http\Controllers\StockController::class, 'index'])->nam
 Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'create'])->name('stock.create');
 
 Route::post('/stock/store',[App\Http\Controllers\StockController::class, 'store'])->name('stock.store');
+Route::delete('/stock/{id}', [App\Http\Controllers\MenuController::class, 'destroy'])->name('stock.destroy');
+

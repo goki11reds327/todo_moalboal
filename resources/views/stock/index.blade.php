@@ -47,9 +47,11 @@
                     ★肉・魚・卵など
                 </a>
                 @foreach($stocks as $stock)
-                 @if($stock->is_meat) {
-                    <p class='text-center'>× {{  $stock->あまりもの}}</p>
-                 }
+                 @if($stock->is_meat) 
+                 <div class="stock-item" id="stock-item-{{ $stock->id }}">
+                    <p class='text-center'> {{  $stock->あまりもの}}</p>
+                     <!-- 追加: 削除ボタン -->
+                     <button onclick="deleteStockItem('{{ $stock->id }}')">Delete</button>
                  @endif
                 @endforeach
                 {{-- <button onclick="addNewItem('meatFishEggs')">新規追加</button>
@@ -69,12 +71,15 @@
                     ★野菜・果物など
                 </a>
                 @foreach($stocks as $stock)
-                 {{-- <p class='text-center'>× {{  $stock->あまりもの}}</p> --}}
-                 @if($stock->is_fruit) {
-                    <p class='text-center'>× {{  $stock->あまりもの}}</p>
-                 }
-                 @endif 
-                @endforeach
+                 {{-- <p class='text-center'> {{  $stock->あまりもの}}</p> --}}
+                 @if($stock->is_fruit) 
+                 <div class="stock-item" id="stock-item-{{ $stock->id }}">
+                    <p class='text-center'> {{  $stock->あまりもの}}</p>
+                     <!-- 追加: 削除ボタン -->
+                     <button onclick="deleteStockItem('{{ $stock->id }}')">Delete</button>
+                 @endif
+                    @endforeach
+                
                
                 {{-- <button onclick="addNewItem('vegetablesFruits')">新規追加</button>
                 <input type="text" id="vegetablesFruitsInput" placeholder="アイテムを入力"> --}}
@@ -99,8 +104,8 @@
                                     <div>
                                         <label for="category">Category:</label>
                                         <select name="category" id="category">
-                                            <option value="1">Meat</option>
-                                            <option value="2">Vegetable</option>
+                                            <option value="1">meat/fish/egg</option>
+                                            <option value="2">fruits and vegetables</option>
                                         </select>
                                     </div>     
                             </div>
@@ -137,6 +142,33 @@
     
                     document.getElementById(inputId).value = ''; // 入力欄をクリア
                 }
+            }
+            function submit() {
+                const form = document.getElementById('form');
+                form.submit();
+            }
+
+            // 追加: 投稿を削除する関数
+            function deleteStockItem(stockItemId) {
+                fetch('/stocks/' + stockItemId, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('ネットワークの応答が正常でありません');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('投稿が正常に削除されました:', data);
+                    document.getElementById('stock-item-' + stockItemId).remove();
+                })
+                .catch(error => {
+                    console.error('投稿の削除エラー:', error);
+                });
             }
         </script>
         

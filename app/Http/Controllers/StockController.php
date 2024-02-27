@@ -73,6 +73,7 @@ class StockController extends Controller
      */
     public function destroy(Stock $stock)
     {
-        //
+        $stock->delete(); // レコードを削除
+        return response()->json(['message' => 'Stock item deleted successfully.']);
     }
 }
