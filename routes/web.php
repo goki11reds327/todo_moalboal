@@ -45,6 +45,8 @@ Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
 
 Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
 Route::post('/buy/store',[App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
+Route::delete('/buy/destroy/{id}', [App\Http\Controllers\BuyController::class, 'destroy'])->name('buy.destroy');
+Route::put('/buy/{id}', [App\Http\Controllers\BuyController::class, 'update'])->name('buy.update');
 
 Route::get('/stock',[App\Http\Controllers\StockController::class, 'index'])->name('stock.index');
 Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'create'])->name('stock.create');
