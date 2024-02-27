@@ -25,7 +25,7 @@
 <body>
     <header>
             <div class="menu-bar">
-                <a href="" class="btn">冷蔵庫</a>
+                <a href="{{ route('stock.index') }}" class="btn">冷蔵庫</a>
                 <a href="{{ route('menu.index') }}" class="btn">menu</a>
                 <div class="">
                     <ul class="">

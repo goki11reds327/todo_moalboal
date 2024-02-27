@@ -39,8 +39,8 @@
                 <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </span>
-            <a href="" class="btn">menu一覧</a>
-            <a href="" class="btn">冷蔵庫</a>
+            <a href="{{ route('menu.index') }}" class="btn">menu</a>
+            <a href="{{ route('stock.index') }}" class="btn">冷蔵庫</a>
         </div>
     </header>
     <main>
