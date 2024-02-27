@@ -9,11 +9,14 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 ## Member
 <p>
- Leader:**GOKI KAWAMURA**<br>
- Front:**MAI TSUCHIYA**<br>
- Back:**MASAAKI KATO**<br>
- Back:**NAOHIRO INUKAI**<br>
-    **Hello**
+ <b><u>Leader</u></b><br>
+    GOKI KAWAMURA<br>
+ <b><u>Front</u></b><br>
+    MAI TSUCHIYA<br>
+ <b><u>Back</u></b>b><br>
+    MASAAKI KATO<br>
+    NAOHIRO INUKAI<br>
+
 </p>
 
 
