@@ -71,9 +71,11 @@ class StockController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Stock $stock)
+    public function destroy($id)
     {
+        $stock=Stock::where('id',$id)->firstOrFail();
+        // dump('deleted');
         $stock->delete(); // レコードを削除
-        return response()->json(['message' => 'Stock item deleted successfully.']);
+        return redirect()->route('stock.index')->with('success','Stock deleted successfully');
     }
 }
