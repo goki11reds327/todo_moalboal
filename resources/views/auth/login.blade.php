@@ -10,7 +10,7 @@
                         <div class="row mb-3">
                             <label for="email" class="">{{ __('Email Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="frame">
                                 <input id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -24,7 +24,7 @@
                         <div class="row mb-3">
                             <label for="password" class="">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="frame">
                                 <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="frame offset-md-4">
                                 <div class="flex">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="remember">

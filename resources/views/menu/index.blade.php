@@ -17,10 +17,10 @@
 <body>
     <header>
         <div class="display_btn">
-            <span class="profile">
+            <a href="{{ route('profile') }}" class="profile">
                 <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
-            </span>
+            </a>
             <a href="#" class="btn btn-1day" onclick="showDiv(1)"><span>１日</span></a>
             <a href="#" class="btn btn-3days" onclick="showDiv(3)"><span>３日</span></a>
             <a href="#" class="btn btn-7days" onclick="showDiv(7)"><span>１週間</span></a>
