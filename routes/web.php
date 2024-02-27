@@ -23,6 +23,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dash', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get('/menu/index', [App\Http\Controllers\MenuController::class, 'index'])->name('menu.index');
 Route::get('/menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('menu.create');

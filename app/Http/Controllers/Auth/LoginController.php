@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -25,15 +26,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    
+     protected $redirectTo = '/home'; // デフォルトのリダイレクト先
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
+     // 他のメソッド...
+ 
+     // ログイン後のリダイレクト先を設定
+    //  protected function authenticated(Request $request, $user)
+    // {
+    //     return redirect()->route('/home'); // ログイン完了画面にリダイレクト
+    // }
 }

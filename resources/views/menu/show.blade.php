@@ -40,6 +40,7 @@
                     <span>削除する</span>
                 </button>
             </form>
+            <a href="{{ route('menu.index',$menu->id) }}" class="show-btn"><span>一覧へ戻る</span></a>
             </div>
         </div>
     </main>
