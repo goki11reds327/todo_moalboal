@@ -9,11 +9,18 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 ## Member
 <p>
- Leader:GOKI KAWAMURA<br>
- Front:MAI TSUCHIYA<br>
- Back:MASAAKI KATO<br>
- Back:NAOHIRO INUKAI<br>
+ Leader:**GOKI KAWAMURA**<br>
+ Front:**MAI TSUCHIYA**<br>
+ Back:**MASAAKI KATO**<br>
+ Back:**NAOHIRO INUKAI**<br>
 </p>
+
+
+## Development Period
+<p>
+期間：2024年2月20日-2024年3月1日
+</p>
+
 
 ## How To Environment
 
@@ -26,10 +33,6 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
  Step 6. php artisan serve<br>
 </p>
 
-## Development Period
-<p>
-期間：2024年2月20日-2024年3月1日
-</p>
 
 ## Start Page
 <h3>PC画面</h3><br>
