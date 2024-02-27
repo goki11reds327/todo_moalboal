@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/dash', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/register-home', [App\Http\Controllers\RegisterController::class, 'index'])->name('register-home');
 
 
 Route::get('/menu/index', [App\Http\Controllers\MenuController::class, 'index'])->name('menu.index');
