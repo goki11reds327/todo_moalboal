@@ -80,6 +80,20 @@ body{
   transform: scale(1.1);
 }
 
+.refrigerator{
+  height: 100px;
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+  z-index: 2;
+  transition: .3s;
+}
+
+.refrigerator:hover{
+  filter: brightness(80%);
+  transform: scale(1.1);
+}
+
 /* ここから写真の箱の修飾 */
 
 /* Add your styles here */
