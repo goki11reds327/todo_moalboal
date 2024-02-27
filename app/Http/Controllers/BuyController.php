@@ -63,4 +63,24 @@ class BuyController extends Controller
 
         return redirect()->route('buy.index');
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'edited_ingredient' => 'required|string|max:30',
+            'edited_amount' => 'required|string|max:10',
+            'edited_place' => 'required|string|max:30',
+            'edited_who_buy' => 'required|string|max:10',
+        ]);
+
+        $buy = Buy::findOrFail($id);
+        $buy->update([
+            'ingredient' => $request->input('edited_ingredient'),
+            'amount' => $request->input('edited_amount'),
+            'place' => $request->input('edited_place'),
+            'who_buy' => $request->input('edited_who_buy'),
+        ]);
+
+        return redirect()->route('buy.index')->with('success','更新したで');
+    }
 }

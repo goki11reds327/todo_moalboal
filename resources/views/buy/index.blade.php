@@ -11,6 +11,9 @@
     <link href="https://fonts.bunny.net/css?family=archivo-black:400" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
     {{-- Style --}}
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/buy.css') }}">
@@ -49,22 +52,47 @@
                 {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
             </div>
             <p>rrr</p>
+            @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>{{ $message }}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
             @foreach($buys as $buy)
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
-                        <div class="ingredients">必要具材：{{ $buy->ingredient }}</div>
-                        <div class="amount">必要数量：{{ $buy->amount }}</div>
-                        <div class='wherebuy'>購入予定場所：{{ $buy->place }}</div>
-                        <div class='who_buy'>買って帰る人：{{ $buy->who_buy }}</div>
+                        <<!-- Inside the foreach loop where you display buy information -->
+                        <div class="ingredients" id="ingredient_{{ $buy->id }}">必要具材：{{ $buy->ingredient }}</div>
+                        <div class="amount" id="amount_{{ $buy->id }}">必要数量：{{ $buy->amount }}</div>
+                        <div class='wherebuy' id="place_{{ $buy->id }}">購入予定場所：{{ $buy->place }}</div>
+                        <div class='who_buy' id="who_buy_{{ $buy->id }}">買って帰る人：{{ $buy->who_buy }}</div>
                         <img src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
-                        {{-- <div class="destroy-btn">
-                            <form action="{{ route('destroy', [$buy->id]) }}" method="post">
-                            @csrf
-                            <input type="submit" value="削除">
+                        <div class="destroy-btn">
+                            <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                    削除する
+                                </button>
                             </form>
-                        </div style="padding:10px 40px"> --}}
+                        </div style="padding:10px 40px">
+                        {{-- Edit Form --}}
+                        <div id="editForm_{{ $buy->id }}" style="display: none;">
+                            <form action="{{ route('buy.update', $buy->id) }}" method="post" >
+                                @csrf
+                                @method('put')
+                                <input type="text" name="edited_ingredient" value="{{ $buy->ingredient }}">
+                                <input type="text" name="edited_amount" value="{{ $buy->amount }}">
+                                <input type="text" name="edited_place" value="{{ $buy->place }}">
+                                <input type="text" name="edited_who_buy" value="{{ $buy->who_buy }}">
+                                <button type="submit">更新</button>
+                            </form>
+                        </div>
+
+                        {{-- Edit Button --}}
+                        <button onclick="toggleEditForm({{ $buy->id }})">編集するで</button>
             </div>
             @endforeach
                 <div class="form-check">
@@ -99,5 +127,55 @@
     @endif
 
     </main>
+
+    <script>
+        function toggleEditForm(id) {
+            document.getElementById(`ingredient_${id}`).style.display = 'none';
+            document.getElementById(`amount_${id}`).style.display = 'none';
+            document.getElementById(`place_${id}`).style.display = 'none';
+            document.getElementById(`who_buy_${id}`).style.display = 'none';
+            document.getElementById(`editForm_${id}`).style.display = 'block';
+        }
+    
+        // function updateBuy(id) {
+        //     console.log('Updating buy with ID:', id);
+        //     // Implement AJAX or submit the form using JavaScript to update the record
+        //     // You may use axios or fetch to send a request to the controller's update method
+        //     // Handle the update logic in your BuyController
+        //     // After updating, toggle back to displaying the original content
+    
+        //     // Example using fetch:
+        //     fetch(`/buy/{id}`, {
+        //         method: 'PUT',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+        //         },
+        //         body: JSON.stringify({
+        //             edited_ingredient: document.querySelector(`[name="edited_ingredient"]`).value,
+        //             edited_amount: document.querySelector(`[name="edited_amount"]`).value,
+        //             edited_place: document.querySelector(`[name="edited_place"]`).value,
+        //             edited_who_buy: document.querySelector(`[name="edited_who_buy"]`).value,
+        //         })
+        //     })
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         // Update the displayed content with the updated values
+        //         document.getElementById(`ingredient_${id}`).innerText = data.ingredient;
+        //         document.getElementById(`amount_${id}`).innerText = data.amount;
+        //         document.getElementById(`place_${id}`).innerText = data.place;
+        //         document.getElementById(`who_buy_${id}`).innerText = data.who_buy;
+    
+        //         // Toggle back to displaying the original content
+        //         document.getElementById(`ingredient_${id}`).style.display = 'block';
+        //         document.getElementById(`amount_${id}`).style.display = 'block';
+        //         document.getElementById(`place_${id}`).style.display = 'block';
+        //         document.getElementById(`who_buy_${id}`).style.display = 'block';
+        //         document.getElementById(`editForm_${id}`).style.display = 'none';
+        //         console.log('Update successful:', data);
+        //     })
+        //     .catch(error => console.error('Error:', error));
+        // }
+    </script>
 </body>
 </html>
