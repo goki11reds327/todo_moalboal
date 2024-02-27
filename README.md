@@ -18,6 +18,10 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
  Step 6. php artisan serve<br>
 </p>
 
-## Home Page
+## Development Period
+<p>
+期間：2024年2月20日-2024年3月1日
+</p>
 
-<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
+## Start Page
+<img width="1679" alt="Start Page" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
