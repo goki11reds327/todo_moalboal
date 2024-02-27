@@ -5,6 +5,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BuyController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/dash', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/register-home', [App\Http\Controllers\RegisterController::class, 'index'])->name('register-home');
 
 
 Route::get('/menu/index', [App\Http\Controllers\MenuController::class, 'index'])->name('menu.index');
@@ -45,10 +46,13 @@ Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
 
 Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
 Route::post('/buy/store',[App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
+Route::delete('/buy/destroy/{id}', [App\Http\Controllers\BuyController::class, 'destroy'])->name('buy.destroy');
+Route::put('/buy/{id}', [App\Http\Controllers\BuyController::class, 'update'])->name('buy.update');
 
 Route::get('/stock',[App\Http\Controllers\StockController::class, 'index'])->name('stock.index');
 Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'create'])->name('stock.create');
 
 Route::post('/stock/store',[App\Http\Controllers\StockController::class, 'store'])->name('stock.store');
+Route::delete('/stock/{id}', [App\Http\Controllers\MenuController::class, 'destroy'])->name('stock.destroy');
 
 Route::get('/profile',[App\Http\Controllers\ProfileController::class, 'show'])->name('profile');
