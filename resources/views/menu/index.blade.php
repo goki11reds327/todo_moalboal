@@ -25,6 +25,7 @@
             <a href="#" class="btn btn-3days" onclick="showDiv(3)"><span>３日</span></a>
             <a href="#" class="btn btn-7days" onclick="showDiv(7)"><span>１週間</span></a>
         </div>
+        <img src="{{ asset('/img/refriger.png') }}" alt="冷蔵庫" class="refrigerator">
         <div class="new_post_btn">
             <a href="/menu/create" class="btn-gradient new-btn"><span>新規作成</span></a>
         </div>
