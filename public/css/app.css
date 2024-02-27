@@ -4,21 +4,31 @@ body{
   background-color: #FCFFE7;
 }
 
-#username{
-  margin-top: 70px;
-}
 /* ここからボタンの修飾 */
 .display_btn{
     display: flex;
+    align-items: center;
     text-align: center;
-    justify-content: space-between;
     background-color: rgb(95, 70, 48);
     width: 100vw;
-    height: 4em;
-    font:24px;
+    height: 6em;
     position: fixed;
     top: 0;
     z-index: 2;
+}
+
+.profile{
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+
+.self_image{
+  height: 80%;
+  aspect-ratio: 1/1;
+  border-radius: 100px;
+  background-color: gray;
+  overflow: hidden;
+  margin: 10px;
 }
 
 .btn{
@@ -34,10 +44,24 @@ body{
   transform: scale(1.1);
 }
 
+.btn-1day{
+  position: absolute;
+  left: 22vw;
+}
+
+.btn-3days{
+  position: absolute;
+  left: 47vw;
+}
+
+.btn-7days{
+  position: absolute;
+  left: 70vw;
+}
 
 .new-btn{
   color:rgb(95, 70, 48);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   background: white;
   text-decoration-line:none ;
@@ -67,7 +91,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 70px 0 0 0;
+    margin: 110px 0 0 0;
 }
 
 .box{
@@ -87,7 +111,7 @@ body{
 }
 
 
-.item img {
+.item .menu-img {
   width: 80vw;
   max-width: 400px;
   height: auto;
@@ -143,6 +167,20 @@ body{
 	top: -5px; /*上から（-5px）移動*/
 	left: 20px; /*左から(20px)移動*/
 
+}
+
+.detail{
+  display: flex;
+  justify-content: center;
+}
+
+.change-btn{
+  text-decoration-line: none;
+  color: white;
+  border: #fff solid 1px;
+  padding: 10px;
+  border-radius: 6%;
+  
 }
 
 /* ＝＝＝＝＝＝＝こっから下menu/show用 ＝＝＝＝＝＝＝*/
