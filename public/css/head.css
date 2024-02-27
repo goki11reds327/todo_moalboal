@@ -5,6 +5,13 @@ body{
     color:  rgb(95, 70, 48);
 }
 
+.empty{
+    margin: 30px 0 0;
+}
+
+.center{
+    height: 100vh;
+}
 
 .menu-bar{
     display: flex;
@@ -33,7 +40,6 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vb;
     width: 100vw;
 }
 
@@ -145,7 +151,7 @@ button:hover{
 }
 
 .food-bag{
-    width: 30vw;
+    width: 20vw;
     max-width: 200px;
     margin: 10vb;
 }
