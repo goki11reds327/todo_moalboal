@@ -43,39 +43,27 @@ body{
 }
 
 
-
-  /* スマートフォンでのボタンサイズ調整 */
-@media (max-width: 767px) {
-    .btn,
-    a.btn,
-    button.btn {
-        padding: 0.
-    }
-}
-
-/* .date-box,
-.buylist-box {
-    display: flex;
-    justify-content: center;
-    height: 100vh; 画面全体の高さに対して中央揃え
-} */
-
-/* .date-box p,
-.buylist-box p {
-    font-weight: bold;
-} */
-
-
 /* ==メインの装飾== */
 main{
  margin: 100px 0 0;   
 }
 
-.form-check{
+.buylist-box{
+  margin: 1em auto;
+  /* ボックス背景色 */
+    padding:2em 1em 1em; /* ボックス内側余白 */
+    position:relative; /*配置(ここを基準に)*/
+    width: 80%;
+    background-color: #E0D8B0;
+}
+
+.buy-line{
     display:flex;
-    /* justify-content: space-between; */
-    
 }
-.buy-line > div{
-    margin-right:20px;
+
+
+
+.food-image{
+  max-width: 100px;
 }
+
