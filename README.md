@@ -10,12 +10,12 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 ## How To Environment
 
 <p>
- Step 1. git clone URL
- Step 2. DB作成
- Step 3. cp .env.sample .envを入力
- Step 4. php key:generateを入力し、Keyを作成
- Step 5. php artisan migrateでテーブル作成
- Step 6. php artisan serve
+ Step 1. git clone URL<br>
+ Step 2. DB作成<br>
+ Step 3. cp .env.sample .envを入力<br>
+ Step 4. php key:generateを入力し、Keyを作成<br>
+ Step 5. php artisan migrateでテーブル作成<br>
+ Step 6. php artisan serve<br>
 </p>
 
 ## Home Page
