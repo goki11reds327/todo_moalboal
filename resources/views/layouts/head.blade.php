@@ -35,13 +35,13 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="">
-                                    <a class="btn" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="top-right" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="">
-                                    <a class="btn" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="top-right" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -68,7 +68,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>

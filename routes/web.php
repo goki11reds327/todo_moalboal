@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BuyController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,5 @@ Route::get('/stock',[App\Http\Controllers\StockController::class, 'index'])->nam
 Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'create'])->name('stock.create');
 
 Route::post('/stock/store',[App\Http\Controllers\StockController::class, 'store'])->name('stock.store');
+
+Route::get('/profile',[App\Http\Controllers\ProfileController::class, 'show'])->name('profile');

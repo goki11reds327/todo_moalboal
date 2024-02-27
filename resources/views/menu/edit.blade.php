@@ -7,6 +7,7 @@
     
     <title>edit - To Buy List </title>
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
+    
     <link rel="stylesheet" href="{{ asset('/css/posts.css') }}">
 </head>
 <body>

@@ -1,26 +1,34 @@
-body{
-    height: 100%;
-    background-color: #E6ECF0;
+.profile-box{
+    text-align: center;
+    max-width: 800px; /* 画面幅に合わせて調整 */
+    padding: 20px;
+    margin: 20px;
+    border: 5px solid  rgb(95, 70, 48);
+    border-radius: 8px;
 }
 
-.wrapper{
-    width: 50%;
-    height: auto;
-    margin: 0 auto;
-    background-color: #ffffff;
+#username{
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    border-bottom: 3px rgb(95, 70, 48) solid;
 }
 
-.image-box > img{
-    width: 110px;
-    border-radius: 50%;
-    border: 1px solid black;
+.self_image_big{
+    margin: 5vh 5vh 0;
+    width:60vw;
+    max-width: 400px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+    background-color: antiquewhite;
+}
+
+.change-image{
+    text-decoration-line:none ;
+    color:  rgb(95, 70, 48);
+    font-family: "M PLUS 1p";;
 }
 
 .return-btn{
-    border-radius: 30px;
-    padding-left: 30px;
-    font-size: 1.1rem;
-    width: 100px;
-    padding: 8px 0;
-    border: 1px solid orange;
+    margin: 20px;
 }
