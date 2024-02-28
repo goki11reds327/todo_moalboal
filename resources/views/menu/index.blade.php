@@ -17,7 +17,7 @@
 <body>
     <header>
         <div class="display_btn">
-            <a href="{{ route('profile') }}" class="profile">
+            <a href="{{ route('show', Auth::user()->user_image) }}" class="profile">
                 <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </a>

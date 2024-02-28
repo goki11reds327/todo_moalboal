@@ -50,4 +50,14 @@ class User extends Authenticatable
         return $this->hasMany(Menu::class);
     }
     
+    public function buys()
+    {
+        return $this->hasMany('App\Models\Buy');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
+
 }

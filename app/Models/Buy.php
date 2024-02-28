@@ -17,6 +17,18 @@ class Buy extends Model
     {
         return $this->belongsTo('App\Models\menu');
     }
+
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function comments()
+    {
+        return $this->belongsTo('App\Models\Comments');
+    }
+
 }
 
  
