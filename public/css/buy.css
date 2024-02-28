@@ -45,7 +45,7 @@ body{
 
 /* ==メインの装飾== */
 main{
- margin: 100px 0 0;   
+  margin: 100px 0 0;   
 }
 
 .buylist-box{
@@ -53,17 +53,73 @@ main{
   /* ボックス背景色 */
     padding:2em 1em 1em; /* ボックス内側余白 */
     position:relative; /*配置(ここを基準に)*/
-    width: 80%;
+    width: 90%;
     background-color: #E0D8B0;
 }
 
 .buy-line{
     display:flex;
+    /* justify-content: space-between; */
 }
 
+h1{
+  font-size: 30px;
+  margin:20px auto;
+}
 
+span{
+  color: brown;
+}
 
 .food-image{
   max-width: 100px;
 }
 
+
+.gg-btn {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	position: relative;
+	/* width: 120px; */
+	margin: auto;
+	/* padding: 1rem 4rem; */
+	font-weight: bold;
+	border-radius: 10px;
+	color: #000000;
+	border: 3px solid #E0D8B0;
+	/* box-shadow: 5px 5px #E0D8B0; */
+	transition: 0.3s ease-in-out;
+}
+.gg-btn:hover {
+	box-shadow: none;
+	transform: translate(5px, 5px);
+	color: #E0D8B0;
+}
+
+.buy-line {
+  display: flex;
+  align-items: start;
+}
+
+.buy-line label, .buy-line img {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.add-btn{
+  color:darkorange;
+  border: #000000 solid 3px;
+}
+
+@media screen and (max-width:800px){
+.buy-line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust the gap as needed */
+}
+
+.buy-line label, .buy-line img {
+    margin-bottom: 10px; /* Adjust the margin as needed */
+}
+}
