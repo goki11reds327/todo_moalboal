@@ -117,23 +117,6 @@
                 {{-- {{ $buys->links() }}   pagination system --}}        
         </div>
 
-        {{-- @foreach($comments as $comment)
-    <div class="tweet-box">
-        <a href="{{ route('comment', [$comment->user->id])}}"><img src="{{ asset('storage/images/'.$comment->user->image) }}" alt=""></a>
-        <div>{{ $comment->comment }}</div>
-        <div class="destroy_btn">
-            @if($comment->user_id == Auth::user()->id)
-            <form action="{{ route('destroyComment', [$comment->id]) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <input type="submit" value="削除">
-            </form>
-            @endif
-        </div>
-    </div>
-    @endforeach --}}
-    {{-- {{ $comments->links() }} --}}
-
     <form action="{{ route('postComment') }}" method="post">
         @csrf
         <div class="post-box">
