@@ -47,21 +47,24 @@
             @foreach($buys as $buy)
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
+                        
+                        <label class="form-check-label buylist-text" for="flexCheckDefault">
+                            <span>：完了したらチェックやで</span>
+                            <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
+                        </label>
                         <!-- Inside the foreach loop where you display buy information -->
-                        <label for=""><span>必要具材</span>
-                        <div class="ingredients" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
+                        <label for=""><span>⭐️必要具材</span>
+                        <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
                         </label>
-                        <label for=""><span>買う量</span>
-                        <div class="amount" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
+                        <label for=""><span>⭐️買う量</span>
+                        <div class="amount dd" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
                         </label>
-                        <label for=""><span>買う場所</span>
-                        <div class='wherebuy' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
+                        <label for=""><span>⭐️買う場所</span>
+                        <div class='wherebuy dd' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
                         </label>
-                        <label for=""><span>買う人</span>
-                        <div class='who_buy' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
-                        </label><span>イメージ画像</span>
+                        <label for=""><span>⭐️買う人</span>
+                        <div class='who_buy dd' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
+                        </label><span>⭐️イメージ画像</span>
                         <label for="">
                         <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
                         </label>
