@@ -113,8 +113,35 @@
     </div>
     @endif
 
-    </main>
+    <div class="buylist-box"> 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    
+        <!-- 他の要素の表示 -->
+    </div>
+    
 
+    </main>
+    @if ($confirmation = Session::get('confirmation'))
+    <script>
+        var userConfirmation = confirm("{{ $confirmation }}");
+        if (!userConfirmation) {
+            // If the user cancels, prevent the form submission or take appropriate action
+            // For example: document.getElementById('yourForm').reset();
+        }
+    </script>
+@endif
     <script>
         function toggleEditForm(id) {
             document.getElementById(`ingredient_${id}`).style.display = 'none';
