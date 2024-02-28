@@ -32,12 +32,16 @@
     <main>
         <div class="date-box">
             {{-- <p>{{ Auth::menu()->title }}</p> menuのタイトル表示 --}}
+            {{-- {{ $menu->title }} --}}
         </div>
         <div class="buylist-box"> 
             <div>
                 {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
+                {{ $menu->comment }}
             </div>
+
             <h1>⭐️買うものリスト</h1>
+
             @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ $message }}</strong>
@@ -98,7 +102,10 @@
                 {{-- <div class="form-check"> --}}
                     {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
                     {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
-                    {{-- カレー --}}
+                    
+                        {{ $menu->title }}
+                        {{ $menu->comment }}
+
                     {{-- </label> --}}
                 {{-- </div> --}}
                 {{-- {{ $buys->links() }}   pagination system --}}
@@ -108,6 +115,8 @@
             @csrf
             <div class="post-box">
                 <input type="text" name="ingredient" placeholder="具材名">
+                <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
+                <input type="text" name="date" value="{{ $menu->date }}" hidden>
                 <input type="text" name="amount" placeholder="必要数量">
                 <input type="text" name="place" placeholder="買う場所">
                 <input type="text" name="who_buy" placeholder="買って帰る人">

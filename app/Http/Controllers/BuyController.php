@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Buy;
+use App\Models\Menu;
 use App\Models\Stock;
 
 class BuyController extends Controller
 {
     //
-    function index()
+    function index($menu_id)
 {
-    $buys = Buy::all();
-    return view('buy.index',['buys'=>$buys]);
+    // dd($menu_id);
+    $buys = Buy::where('menu_id', $menu_id)->get();
+    $menu = Menu::where('id', $menu_id)->first();
+    // dd($menu);
+    return view('buy.index',['buys'=>$buys, 'menu' => $menu]);
 }
 
     public function store(Request $request)
@@ -59,9 +63,14 @@ class BuyController extends Controller
         $buy -> amount = $request -> amount;
         $buy -> place = $request -> place;
         $buy -> who_buy = $request -> who_buy;
+        $buy -> menu_id = $request -> menu_id;
+        $buy -> user_id = Auth::id();
+        $buy -> date = $request -> date;
 
         $buy -> save();
-
+      
+            return back();
+        // return redirect()->route('buy.index');
         $successMessage = 'Ingredient added successfully.';
         return redirect()->route('buy.index')->with('success', $successMessage);
     }
@@ -93,6 +102,7 @@ class BuyController extends Controller
             'who_buy' => $request->input('edited_who_buy'),
         ]);
 
+         return back();
         return redirect()->route('buy.index')->with('success','更新したで');
     }
 }

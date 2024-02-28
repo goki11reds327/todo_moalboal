@@ -10,13 +10,13 @@ class Buy extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'ingredient','amount','place','item_image','who_buy'
+        'ingredient','amount','place','item_image','who_buy','menu_id','date','user_id'
     ];
     
-    // public function menu()
-    // {
-    //     return $this->belongsTo('App\Models\menu');
-    // }
+    public function menu()
+    {
+        return $this->belongsTo('App\Models\menu');
+    }
 }
 
  
