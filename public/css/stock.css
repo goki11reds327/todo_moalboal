@@ -1,76 +1,72 @@
 /* div#app.container のスタイル修正 */
-/* div#app.container のスタイル修正 */
 #app.container {
-  margin: 0; /* 左右の余白を0に設定 */
+  margin: 0;
   padding: 0;
   background-color: transparent;
-  height: 100vh; /* 画面の高さいっぱいに広げる */
+  height: 932px; /* 固定の高さを設定 */
+  width: 430px; /* 固定の幅を設定 */
   display: flex;
   flex-direction: column;
-  background-image: url('/img/refriger.png'); 
-  background-repeat: no-repeat; /* 繰り返し表示を防ぐ */
-  background-size: cover; /* 背景画像を横幅いっぱいに広げる */
-  background-size: 430px 932px; /* 背景画像のサイズを固定 */
+  background-color: rgba(251, 174, 174, 0.8);/* 背景色を薄くし、透明度を調整 */
+  height: 932px;
+  background-image: url('/img/refriger.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top; /* 画像を中央に配置 */
+  background-size: contain; /* 画像を横幅いっぱいに広げ、高さは画面内に収める */
 }
-
-/* 以下省略 */
-
 
 /* stock_title のスタイル修正 */
 .stock_title {
   width: 100%;
-  height: 80px;
-  max-width: 100%; /* 最大幅を100%に設定 */
-  background-color: #8B4513; /* 茶色の背景色 */
-  color: white; /* 文字色を白に設定 */
-  padding: 10px; /* 適切なパディングを追加 */
-  text-align: center; /* テキストを中央揃え */
-  align-items: center;
+  height: 40px;
+  background-color: #8B4513;
+  color: white;
+  padding: 10px;
+  text-align: center;
   margin: 0;
 }
 
 /* アイテムの追加ボタンのスタイル修正 */
-/* ボタンボーダーのスタイル修正 */
 .box.btn {
-  display: inline-block; /* インラインブロック要素に設定 */
-  border: 2px solid #8B4513; /* ボーダーの色と幅を設定 */
-  background-color: transparent; /* 背景色を透明に設定 */
-  color: #8B4513; /* 文字色を茶色に設定 */
-  padding: 10px; /* 適切なパディングを追加 */
-  text-align: center; /* テキストを中央揃え */
-  cursor: pointer; /* ボタンのように見せるためにカーソルをポインターに設定 */
-  width: fit-content; /* 文字の幅にボタンの横幅を自動調整 */
-  margin-bottom: 20px; /* 適切なマージンを追加 */
+  display: inline-block;
+  border: 2px solid #8B4513;
+  background-color: transparent;
+  color: #8B4513;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 20px;
 }
 
 /* item のスタイル修正 */
 .box.title {
-  margin: 0; /* 左右の余白を0に設定 */
-  position: relative; /* 配置(ここを基準に) */
+  margin: 0 auto;
+  position: relative;
   width: 100%;
-  max-width: 80%; /* 最大幅を100%に設定 */
+  max-width: 80%;
   background-color: transparent;
   text-align: center;
-  margin: 0 auto;
   font-size: 20px;
 }
 
-/* スタイル修正 */
 .item-content p.text-center {
-  padding: 1px 6px; /* 上下左右のパディングを1px 6pxに変更 */
+  padding: 1px 6px;
   margin: 0;
 }
 
 .box {
   text-align: center;
-  background-color: rgba(52, 15, 15, 0.7); /* 背景色の透明度を設定 */
+  background-color: rgba(66, 52, 52, 0.7);
   color: white;
   width: 70%;
   margin: 0 auto;
+  margin-top: 20px;
+  border: #8B4513;
 }
 
 .itembutton {
   text-align: right;
   margin-right: 50px;
-  
 }
