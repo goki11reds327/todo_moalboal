@@ -20,20 +20,6 @@
 </head>
 <body>
     <header>
-        {{-- <div class="buttons-top">
-            <button class="refrigerator-button">冷蔵庫</button>
-            <button class="top-button">top</button>
-        </div>
-        <div class="menu-bottom">
-            <div>{{ Auth::user()->name }} さん</div>
-            <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
-            {{-- <div class="display_btn">
-                <a href="#" class="btn btn-gradient" onclick="showDiv(1)"><span>１日</span></a>
-                <a href="#" class="btn btn-gradient" onclick="showDiv(3)"><span>３日</span></a>
-                <a href="#" class="btn btn-gradient" onclick="showDiv(7)"><span>１週間</span></a>
-            </div>
-            </div>
-        </div> --}}
         <div class="display_btn">
             <span class="profile">
                 <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
@@ -59,16 +45,17 @@
                         </div>
                         @endif
             @foreach($buys as $buy)
+            <p>必要具材　必要数量　購入予定場所　買って帰る人</p>
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
                         <<!-- Inside the foreach loop where you display buy information -->
-                        <div class="ingredients" id="ingredient_{{ $buy->id }}">必要具材：{{ $buy->ingredient }}</div>
-                        <div class="amount" id="amount_{{ $buy->id }}">必要数量：{{ $buy->amount }}</div>
-                        <div class='wherebuy' id="place_{{ $buy->id }}">購入予定場所：{{ $buy->place }}</div>
-                        <div class='who_buy' id="who_buy_{{ $buy->id }}">買って帰る人：{{ $buy->who_buy }}</div>
-                        <img src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
+                        <div class="ingredients" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
+                        <div class="amount" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
+                        <div class='wherebuy' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
+                        <div class='who_buy' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
+                        <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
                         <div class="destroy-btn">
                             <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
                                 @csrf
