@@ -68,6 +68,7 @@ h1{
 }
 
 span{
+  font-size: 14px;
   color: brown;
 }
 
@@ -75,6 +76,9 @@ span{
   max-width: 100px;
 }
 
+.dd{
+  background-color: palevioletred;
+}
 
 .gg-btn {
 	display: inline-block;
@@ -114,13 +118,18 @@ span{
 
 @media screen and (max-width:800px){
 .buy-line {
+    margin-top:10px;
     display: flex;
     flex-direction: column;
     gap: 10px; /* Adjust the gap as needed */
+    background-color: chocolate;
 }
-
+*{
+  font-size: 20px;
+}
 .buy-line label, .buy-line img {
-    margin-bottom: 10px; /* Adjust the margin as needed */
+    margin-bottom: 0; 
+    margin-right: 0;/* Adjust the margin as needed */
 }
 
 }

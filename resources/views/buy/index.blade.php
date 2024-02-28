@@ -48,39 +48,29 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
-            
 
-        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
-            @csrf
-            <div class="post-box">
-                <input type="text" name="ingredient" placeholder="具材名">
-                <input type="text" name="amount" placeholder="必要数量">
-                <input type="text" name="place" placeholder="買う場所">
-                <input type="text" name="who_buy" placeholder="買って帰る人">
-                <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
-                <button type="submit" class="submit-btn">必要具材追加</button>
-            </div>
-        </form>
-        {{-- <h1>test</h1> --}}
-        @foreach($buys as $buy)
-            <div class="form-check buy-line my-5">
-                {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            @foreach($buys as $buy)
+            <div class="form-check buy-line">
+                 {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
+                        
+                        <label class="form-check-label buylist-text" for="flexCheckDefault">
+                            <span>：完了したらチェックやで</span>
+                            <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
+                        </label>
 
-                        <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
                         <!-- Inside the foreach loop where you display buy information -->
-                        <label for=""><span>必要具材</span>
-                        <div class="ingredients" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
+                        <label for=""><span>⭐️必要具材</span>
+                        <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
                         </label>
-                        <label for=""><span>買う量</span>
-                        <div class="amount" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
+                        <label for=""><span>⭐️買う量</span>
+                        <div class="amount dd" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
                         </label>
-                        <label for=""><span>買う場所</span>
-                        <div class='wherebuy' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
+                        <label for=""><span>⭐️買う場所</span>
+                        <div class='wherebuy dd' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
                         </label>
-                        <label for=""><span>買う人</span>
-                        <div class='who_buy' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
-                        </label><span>イメージ画像</span>
+                        <label for=""><span>⭐️買う人</span>
+                        <div class='who_buy dd' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
+                        </label><span>⭐️イメージ画像</span>
                         <label for="">
                         <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
                         </label>
