@@ -56,3 +56,4 @@ Route::post('/stock/store',[App\Http\Controllers\StockController::class, 'store'
 Route::delete('/stock/{id}', [App\Http\Controllers\StockController::class, 'destroy'])->name('stock.destroy');
 
 Route::get('/profile',[App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
+Route::get('/ingredient',[App\Http\Controllers\BuyController::class, 'getIngredient'])->name('ingredient');

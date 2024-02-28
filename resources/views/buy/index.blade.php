@@ -17,6 +17,7 @@
     {{-- Style --}}
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/buy.css') }}">
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -91,15 +92,15 @@
                 {{-- {{ $buys->links() }}   pagination system --}}
         
 
-        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
+        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data" id="myForm">
             @csrf
             <div class="post-box">
-                <input type="text" name="ingredient" placeholder="具材名">
+                <input type="text" name="ingredient" placeholder="具材名" id="ingredientName">
                 <input type="text" name="amount" placeholder="必要数量">
                 <input type="text" name="place" placeholder="買う場所">
                 <input type="text" name="who_buy" placeholder="買って帰る人">
                 <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
-                <button type="submit" class="submit-btn">必要具材追加</button>
+                <button onclick="checkData(event)" id="submitBtn" class="submit-btn">必要具材追加</button>
             </div>
         </form>
 
@@ -131,18 +132,71 @@
         <!-- 他の要素の表示 -->
     </div>
     
-
+    <div id="question" style="display: none">
+        <p>This ingredient already exists. Are you sure you want to buy more?</p>
+        <button onclick="isYes()">yes</button>
+        <button>no</button>
+    </div>
+  
+    
     </main>
-    @if ($confirmation = Session::get('confirmation'))
+    {{-- <form id="buyForm" method="post" action="{{ route('buy.store') }}">
+        @csrf
+        <!-- other form fields... -->
+    
+        @if ($confirmation = Session::get('confirmation'))
+            <script>
+                var userConfirmation = confirm("{{ $confirmation }}");
+                if (userConfirmation) {
+                    // Create a hidden input element and append it to the form
+                    var hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = 'user_confirmation';
+                    hiddenInput.value = 'yes';
+                    document.getElementById('buyForm').appendChild(hiddenInput);
+                }
+            </script>
+        @endif
+    
+        <button type="submit">Add Ingredient</button>
+    </form> --}}
+    
     <script>
-        var userConfirmation = confirm("{{ $confirmation }}");
-        if (!userConfirmation) {
-            // If the user cancels, prevent the form submission or take appropriate action
-            // For example: document.getElementById('yourForm').reset();
+
+        const myForm = document.getElementById('myForm')
+        const submitBtn = document.getElementById('submitBtn')
+        function isYes() {
+            const question = document.getElementById('question')
+
+            console.log('fuck')
+            question.style.display = 'block'
+            submitBtn.type = 'submit';
+            myForm.submit()
         }
-    </script>
-@endif
-    <script>
+
+        function checkData(event) {
+            event.preventDefault()
+            const ingredientName = document.getElementById('ingredientName').value
+            const question = document.getElementById('question')
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('ingredient') }}",
+                data: {
+                    ingredient: ingredientName
+                },
+                success: function( data ) {
+                    console.log(data)
+                    if(data == 1) question.style.display = 'block'
+                    else isYes()
+                },
+                error: function(xhr, status, error) {
+                    // check status && error
+                    console.log('error')
+                },
+                });
+        }
+
+
         function toggleEditForm(id) {
             document.getElementById(`ingredient_${id}`).style.display = 'none';
             document.getElementById(`amount_${id}`).style.display = 'none';

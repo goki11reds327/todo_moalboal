@@ -16,55 +16,117 @@ class BuyController extends Controller
     return view('buy.index',['buys'=>$buys]);
 }
 
-    public function store(Request $request)
-    {
-        $buy = new Buy;
-        $validator = $request->validate([
-            'ingredient' => ['required', 'string', 'max:30'],
-            'amount' => ['required', 'string', 'max:10'],
-            'place' => ['required', 'string', 'max:30'],
-            'who_buy' => ['required', 'string', 'max:10']
-            // 'item_image' => ['string']
+    // public function store(Request $request)
+    // {
+    //     $buy = new Buy;
+    //     $validator = $request->validate([
+    //         'ingredient' => ['required', 'string', 'max:30'],
+    //         'amount' => ['required', 'string', 'max:10'],
+    //         'place' => ['required', 'string', 'max:30'],
+    //         'who_buy' => ['required', 'string', 'max:10']
+    //         // 'item_image' => ['string']
             
-        ]);
+    //     ]);
 
-        if ($request->hasFile('item_image')) {
-            $image = $request->file('item_image');
-            $imageName = $image->getClientOriginalName();
-            // $image->storeAs('images', $imageName, 'public/img');
-            $image->storeAs('public/img', $imageName);
-            $buy -> item_image = $imageName;
-        }
-        // dd($request);
-        // Buy::create([
-        //     'ingredient' => $request->ingredient, 
-        //     'amount' => $request->amount,
-        //     'place' => $request->place,
-        //     'who_buy' => $request->who_buy,
-        //     'item_image' => $request->item_image
-        // ]);
-        $ingredient = $request->input('ingredient');
-         // Check if the ingredient already exists in the Stock table
-         $existingStock = Stock::where('あまりもの', $ingredient)->first();
+    //     if ($request->hasFile('item_image')) {
+    //         $image = $request->file('item_image');
+    //         $imageName = $image->getClientOriginalName();
+    //         // $image->storeAs('images', $imageName, 'public/img');
+    //         $image->storeAs('public/img', $imageName);
+    //         $buy -> item_image = $imageName;
+    //     }
+    //     $ingredient = $request->input('ingredient');
+    //      $existingStock = Stock::where('あまりもの', $ingredient)->first();
 
-         // Check if the ingredient already exists in the Buy table
-         $existingBuy = Buy::where('ingredient', $ingredient)->first();
+    //      $existingBuy = Buy::where('ingredient', $ingredient)->first();
  
-         // If the ingredient exists in either Stock or Buy, show a confirmation message
-         if ($existingStock || $existingBuy) {
-             $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
-             return redirect()->back()->with('confirmation', $confirmationMessage);
-         }
-        $buy -> ingredient = $ingredient;
-        $buy -> amount = $request -> amount;
-        $buy -> place = $request -> place;
-        $buy -> who_buy = $request -> who_buy;
+    //      if ($existingStock || $existingBuy) {
+    //          $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
+    //          return redirect()->back()->with('confirmation', $confirmationMessage);
+    //      }
 
-        $buy -> save();
+    //     $userConfirmation = $request->input('user_confirmation');
+    //     if ($userConfirmation === 'yes') {
+    //         $buy -> ingredient = $ingredient;
+    //             $buy -> amount = $request -> amount;
+    //             $buy -> place = $request -> place;
+    //             $buy -> who_buy = $request -> who_buy;
 
-        $successMessage = 'Ingredient added successfully.';
-        return redirect()->route('buy.index')->with('success', $successMessage);
+
+            
+            
+    
+    //         $buy -> save();
+    //         $successMessage = 'Ingredient added successfully.';
+    //         return redirect()->route('buy.index')->with('success', $successMessage);
+    //     }
+    //     return redirect()->back();
+    // }
+
+    public function store(Request $request)
+{
+    // dd('test');
+    $buy = new Buy;
+    $validator = $request->validate([
+        'ingredient' => ['required', 'string', 'max:30'],
+        'amount' => ['required', 'string', 'max:10'],
+        'place' => ['required', 'string', 'max:30'],
+        'who_buy' => ['required', 'string', 'max:10']
+        // 'item_image' => ['string']
+    ]);
+
+    if ($request->hasFile('item_image')) {
+        $image = $request->file('item_image');
+        $imageName = $image->getClientOriginalName();
+        $image->storeAs('public/img', $imageName);
+        $buy->item_image = $imageName;
     }
+
+    $ingredient = $request->input('ingredient');
+    // $existingStock = Stock::where('あまりもの', $ingredient)->first();
+    // $existingBuy = Buy::where('ingredient', $ingredient)->first();
+
+    // if ($existingStock || $existingBuy) {
+    //     $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
+    //     return redirect()->back()->with([
+    //         'confirmation' => $confirmationMessage,
+    //         'ingredient' => $ingredient,  // Pass the ingredient back to the form
+    //     ]);
+    // }
+
+    // $userConfirmation = $request->input('user_confirmation');
+    // if ($userConfirmation === 'yes') {
+        // Retrieve the ingredient from the session
+        // $ingredientFromSession = session('ingredient');
+
+        // if ($ingredientFromSession === $ingredient) {
+            $buy->ingredient = $ingredient;
+            $buy->amount = $request->amount;
+            $buy->place = $request->place;
+            $buy->who_buy = $request->who_buy;
+
+            $buy->save();
+    //         $successMessage = 'Ingredient added successfully.';
+    //         return redirect()->route('buy.index')->with('success', $successMessage);
+    //     }
+    // }
+
+    return redirect()->back();
+}
+
+    public function getIngredient(Request $request) {
+        $value = null;
+        $ingredient = $request->input('ingredient');
+        $existingStock = Stock::where('あまりもの', $ingredient)->first();
+        $existingBuy = Buy::where('ingredient', $ingredient)->first();
+
+        if ($existingStock || $existingBuy) {
+            $value = 1;
+        } else $value = 0;
+
+        return $value;
+    }
+
 
     public function destroy($id)
     {
