@@ -39,6 +39,9 @@
                 {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
                 {{ $menu->comment }}
             </div>
+
+            <h1>⭐️買うものリスト</h1>
+
             @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>{{ $message }}</strong>
@@ -46,26 +49,26 @@
                         </div>
                         @endif
             @foreach($buys as $buy)
-            <p>必要具材　必要数量　購入予定場所　買って帰る人</p>
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
-                        <<!-- Inside the foreach loop where you display buy information -->
+                        <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
+                        <!-- Inside the foreach loop where you display buy information -->
+                        <label for=""><span>必要具材</span>
                         <div class="ingredients" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
+                        </label>
+                        <label for=""><span>買う量</span>
                         <div class="amount" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
+                        </label>
+                        <label for=""><span>買う場所</span>
                         <div class='wherebuy' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
+                        </label>
+                        <label for=""><span>買う人</span>
                         <div class='who_buy' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
+                        </label><span>イメージ画像</span>
+                        <label for="">
                         <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
-                        <div class="destroy-btn">
-                            <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
-                                    削除する
-                                </button>
-                            </form>
-                        </div style="padding:10px 40px">
+                        </label>
                         {{-- Edit Form --}}
                         <div id="editForm_{{ $buy->id }}" style="display: none;">
                             <form action="{{ route('buy.update', $buy->id) }}" method="post" >
@@ -75,21 +78,36 @@
                                 <input type="text" name="edited_amount" value="{{ $buy->amount }}">
                                 <input type="text" name="edited_place" value="{{ $buy->place }}">
                                 <input type="text" name="edited_who_buy" value="{{ $buy->who_buy }}">
-                                <button type="submit">更新</button>
+                                <button type="submit" class="gg-btn">更新</button>
                             </form>
                         </div>
+                    <div class="btn-area">
+                        <div class="destroy-btn gg-btn">
+                            <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                    削除する
+                                </button>
+                            </form>
+                        </div style="padding:10px 40px">
 
                         {{-- Edit Button --}}
+                        <div class="destroy-btn gg-btn">
                         <button onclick="toggleEditForm({{ $buy->id }})">編集するで</button>
-            </div>
+                        </div style="padding:10px 40px">
+                    </div>
+            </div>  
             @endforeach
-                <div class="form-check">
+                {{-- <div class="form-check"> --}}
                     {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
                     {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
+                    
                         {{ $menu->title }}
                         {{ $menu->comment }}
+
                     {{-- </label> --}}
-                </div>
+                {{-- </div> --}}
                 {{-- {{ $buys->links() }}   pagination system --}}
         
 
@@ -103,7 +121,7 @@
                 <input type="text" name="place" placeholder="買う場所">
                 <input type="text" name="who_buy" placeholder="買って帰る人">
                 <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
-                <button type="submit" class="submit-btn">必要具材追加</button>
+                <button type="submit" class="submit-btn gg-btn add-btn">＋必要具材追加</button>
             </div>
         </form>
 
@@ -117,8 +135,35 @@
     </div>
     @endif
 
-    </main>
+    <div class="buylist-box"> 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    
+        <!-- 他の要素の表示 -->
+    </div>
+    
 
+    </main>
+    @if ($confirmation = Session::get('confirmation'))
+    <script>
+        var userConfirmation = confirm("{{ $confirmation }}");
+        if (!userConfirmation) {
+            // If the user cancels, prevent the form submission or take appropriate action
+            // For example: document.getElementById('yourForm').reset();
+        }
+    </script>
+@endif
     <script>
         function toggleEditForm(id) {
             document.getElementById(`ingredient_${id}`).style.display = 'none';

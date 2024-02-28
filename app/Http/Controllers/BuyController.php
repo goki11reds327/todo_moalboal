@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Buy;
 use App\Models\Menu;
+use App\Models\Stock;
 
 class BuyController extends Controller
 {
@@ -46,8 +47,19 @@ class BuyController extends Controller
         //     'who_buy' => $request->who_buy,
         //     'item_image' => $request->item_image
         // ]);
+        $ingredient = $request->input('ingredient');
+         // Check if the ingredient already exists in the Stock table
+         $existingStock = Stock::where('あまりもの', $ingredient)->first();
 
-        $buy -> ingredient = $request -> ingredient;
+         // Check if the ingredient already exists in the Buy table
+         $existingBuy = Buy::where('ingredient', $ingredient)->first();
+ 
+         // If the ingredient exists in either Stock or Buy, show a confirmation message
+         if ($existingStock || $existingBuy) {
+             $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
+             return redirect()->back()->with('confirmation', $confirmationMessage);
+         }
+        $buy -> ingredient = $ingredient;
         $buy -> amount = $request -> amount;
         $buy -> place = $request -> place;
         $buy -> who_buy = $request -> who_buy;
@@ -56,9 +68,11 @@ class BuyController extends Controller
         $buy -> date = $request -> date;
 
         $buy -> save();
-
+      
             return back();
         // return redirect()->route('buy.index');
+        $successMessage = 'Ingredient added successfully.';
+        return redirect()->route('buy.index')->with('success', $successMessage);
     }
 
     public function destroy($id)
@@ -92,3 +106,27 @@ class BuyController extends Controller
         return redirect()->route('buy.index')->with('success','更新したで');
     }
 }
+
+// function store(Request $request)
+// {
+//     // Buyテーブルでの重複チェック
+//     $existingBuy = Buy::where('ingredient', $request->ingredient)->first();
+//     if ($existingBuy) {
+//         return redirect()->route('buy.index')->with('error', '同じアイテムがすでに存在します。');
+//     }
+
+//     // Stockテーブルでの重複チェック
+//     $existingStock = Stock::where('ingredient', $request->ingredient)->first();
+//     if ($existingStock) {
+//         return redirect()->route('buy.index')->with('error', '同じアイテムがStockに既に存在します。');
+//     }
+
+//     // 通常の処理を続行
+//     // ...
+
+//     return redirect()->route('buy.index')->with('success', 'アイテムが正常に追加されました。');
+// }
+
+
+
+

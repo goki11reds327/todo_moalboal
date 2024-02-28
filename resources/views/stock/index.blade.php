@@ -50,58 +50,51 @@
                     ★肉・魚・卵など
                 </p>
                 @foreach($stocks as $stock)
-                @if($stock->is_meat) 
-                  <form method="POST" action="{{ route('stock.destroy', $stock->id) }}">
-                    @method('delete')
-                    @csrf
-                    <div class="stock-item" id="stock-item-{{ $stock->id }}">
-                      <div class="item-content"> 
-                        <p class='text-center'>
-                            <button onclick="deleteStockItem('{{ $stock->id }}')">×</button>
-                            {{ $stock->あまりもの }}</p>
-                      </div>
-                    </div>
-                  </form>
-                @endif
-                    @endforeach
-                    {{-- <button onclick="addNewItem('meatFishEggs')">新規追加</button>
-                    <input type="text" id="meatFishEggsInput" placeholder="アイテムを入力"> --}}
-                    <div class="new_post_btn">
-                        {{-- <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            ＋アイテムの追加
-                          </button> --}}
-                        {{-- <a href="/stock/create" class="box" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            >＋アイテムの追加</a> --}}                         
-                    </div>
-                    
+                    @if($stock->is_meat) 
+                    <form method="POST" action="{{ route('stock.destroy', $stock->id) }}">
+                        @method('delete')
+                        @csrf
+                        <div class="stock-item" id="stock-item-{{ $stock->id }}">
+                        <div class="item-content"> 
+                            <p class='text-center'>
+                                <button onclick="deleteStockItem('{{ $stock->id }}')">×</button>
+                                {{ $stock->あまりもの }}
+                            </p>
+                        </div>
+                        </div>
+                    </form>
+                    @endif
+                @endforeach
+                   
+                <div class="new_post_btn">
+                                            
                 </div>
-                 </form>
-                            <div class="item">
+                    
+            </div>
+        
+            <div class="item">
                 <p class="box">
                     ★野菜・果物など
                 </p>
                 @foreach($stocks as $stock)
-                 {{-- <p class='text-center'> {{  $stock->あまりもの}}</p> --}}
                  @if($stock->is_fruit) 
                  <form method="POST" action="{{ route('stock.destroy',$stock->id) }}">
                     @method('delete')
                     @csrf
-                    <div class="item-content"> 
+                    <div class="item-content" id="stock-item-{{ $stock->id }}"> 
+                        <div class="item-content"> 
                         <p class='text-center'>
                             <button onclick="deleteStockItem('{{ $stock->id }}')">×</button>
                             {{ $stock->あまりもの }}</p>
                       </div>
-                         
+                    
+                </div>
+              </form>    
                      @endif
                     @endforeach
                 
                
-                {{-- <button onclick="addNewItem('vegetablesFruits')">新規追加</button>
-                <input type="text" id="vegetablesFruitsInput" placeholder="アイテムを入力"> --}}
               <div class="new_post_btn">
-                    {{-- <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        ＋アイテムの追加
-                      </button> --}}
                 <form action="{{ route('stock.store') }}" method="POST" id="form">
                     @csrf
                     <div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
