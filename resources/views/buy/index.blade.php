@@ -111,6 +111,19 @@
                 {{-- {{ $buys->links() }}   pagination system --}}        
         </div>
 
+        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
+            @csrf
+            <div class="post-box">
+                <input type="text" name="ingredient" placeholder="具材名">
+                <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
+                <input type="text" name="date" value="{{ $menu->date }}" hidden>
+                <input type="text" name="amount" placeholder="必要数量">
+                <input type="text" name="place" placeholder="買う場所">
+                <input type="text" name="who_buy" placeholder="買って帰る人">
+                <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
+                <button type="submit" class="submit-btn gg-btn add-btn">＋必要具材追加</button>
+            </div>
+        </form>
         <form action="{{ route('postComment') }}" method="post">
             @csrf
             <div class="post-box">
