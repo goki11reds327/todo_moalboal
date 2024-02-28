@@ -109,6 +109,11 @@ span{
 
 .buy-line label, .buy-line img {
   margin-right: 10px; /* Adjust the margin as needed */
+  width: 20%;
+}
+
+.buy-line img{
+  width:100px;
 }
 
 .add-btn{
