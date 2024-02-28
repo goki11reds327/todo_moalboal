@@ -3,20 +3,28 @@
 ## About ToDo Moalboal
 
 <p>
-Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリケーション
+Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリケーション。
 </p>
 <p><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200" alt="Laravel Logo"></a></p>
 
 ## Member
 
  #### Leader
-    GOKI KAWAMURA<br>
+
+ <p>
+   GOKI KAWAMURA
+</p>
+ 
  #### Front
+ <p>
     MAI TSUCHIYA<br>
- #### Back
+</p> 
+   
+#### Back
+<p>
     MASAAKI KATO<br>
     NAOHIRO INUKAI<br>
-
+</p>
 
 ## Development Period
 <p>

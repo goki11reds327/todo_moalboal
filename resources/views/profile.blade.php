@@ -73,7 +73,7 @@
                 <div class="">
                     <img class="self_image_big" src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt="">
                 </div>
-                <p class="change-image">画像を変更する</p>
+                {{-- <p class="change-image">画像を変更する</p> --}}
 
                 <button type="button" onclick="history.back()" class="return-btn">戻る</button>
             </div>
