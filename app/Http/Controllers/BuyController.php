@@ -8,6 +8,7 @@ use App\Models\Buy;
 use App\Models\Menu;
 use App\Models\Stock;
 
+
 class BuyController extends Controller
 {
     //

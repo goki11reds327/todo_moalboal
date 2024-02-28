@@ -22,7 +22,7 @@
     <header>
         <div class="display_btn">
             <span class="profile">
-                <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
+                <a href="{{ route('show', Auth::user()->user_image) }}" ><img class="self_image" src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></a>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </span>
             <a href="{{ route('menu.index') }}" class="btn">menu</a>
@@ -48,6 +48,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
+
             @foreach($buys as $buy)
             <div class="form-check buy-line">
                  {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
@@ -56,6 +57,7 @@
                             <span>：完了したらチェックやで</span>
                             <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
                         </label>
+
                         <!-- Inside the foreach loop where you display buy information -->
                         <label for=""><span>⭐️必要具材</span>
                         <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
@@ -101,7 +103,7 @@
                         </div style="padding:10px 40px">
                     </div>
             </div>  
-            @endforeach
+ @endforeach
                 {{-- <div class="form-check"> --}}
                     {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
                     {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
@@ -110,23 +112,31 @@
                         {{ $menu->comment }}
 
                     {{-- </label> --}}
-                {{-- </div> --}}
-                {{-- {{ $buys->links() }}   pagination system --}}
-        
 
-        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
-            @csrf
-            <div class="post-box">
-                <input type="text" name="ingredient" placeholder="具材名">
-                <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
-                <input type="text" name="date" value="{{ $menu->date }}" hidden>
-                <input type="text" name="amount" placeholder="必要数量">
-                <input type="text" name="place" placeholder="買う場所">
-                <input type="text" name="who_buy" placeholder="買って帰る人">
-                <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
-                <button type="submit" class="submit-btn gg-btn add-btn">＋必要具材追加</button>
-            </div>
-        </form>
+                </div>
+                {{-- {{ $buys->links() }}   pagination system --}}        
+        </div>
+
+    <form action="{{ route('postComment') }}" method="post">
+        @csrf
+        <div class="post-box">
+            <input type="text" name="comment" placeholder="伝言">
+            {{-- <input type="number" name="user_id" value="{{ Auth::id() }}" hidden> --}}
+            <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
+            <button type="submit" class="submit-btn">comment</button>
+            {{-- {{ $menu->id }}
+            {{ Auth::id() }} --}}
+            {{-- {{ $menu->id }} --}}
+        </div>
+    </form>
+    {{-- <h1>test</h1> --}}
+    @foreach($menu->comments as $item)
+    <div class="comment">
+        <p>{{ $item->comment }}</p>
+        <!-- Display other comment attributes as needed -->
+    </div>
+@endforeach
+
 
         @if ($errors->any())
     <div class="alert alert-danger">
@@ -138,24 +148,12 @@
     </div>
     @endif
 
-    <div class="buylist-box"> 
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>{{ $message }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-    
-        @if ($message = Session::get('error'))
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>{{ $message }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-    
-        <!-- 他の要素の表示 -->
-    </div>
-    
+
+</div>
+</div>
+<script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script>
+    </main>
+
 
     </main>
     @if ($confirmation = Session::get('confirmation'))
