@@ -36,7 +36,7 @@
         </div> --}}
         <div class="display_btn">
             <span class="profile">
-                <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
+                <a href="{{ route('show', Auth::user()->user_image) }}" ><img class="self_image" src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></a>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </span>
             <a href="{{ route('menu.index') }}" class="btn">menu</a>
@@ -58,9 +58,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                         @endif
-            @foreach($buys as $buy)
-            <div class="form-check buy-line">
-                 {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
+            
+
+        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
+            @csrf
+            <div class="post-box">
+                <input type="text" name="ingredient" placeholder="具材名">
+                <input type="text" name="amount" placeholder="必要数量">
+                <input type="text" name="place" placeholder="買う場所">
+                <input type="text" name="who_buy" placeholder="買って帰る人">
+                <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
+                <button type="submit" class="submit-btn">必要具材追加</button>
+            </div>
+        </form>
+        {{-- <h1>test</h1> --}}
+        @foreach($buys as $buy)
+            <div class="form-check buy-line my-5">
+                {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
                         <<!-- Inside the foreach loop where you display buy information -->
@@ -68,7 +82,7 @@
                         <div class="amount" id="amount_{{ $buy->id }}">必要数量：{{ $buy->amount }}</div>
                         <div class='wherebuy' id="place_{{ $buy->id }}">購入予定場所：{{ $buy->place }}</div>
                         <div class='who_buy' id="who_buy_{{ $buy->id }}">買って帰る人：{{ $buy->who_buy }}</div>
-                        <img src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
+                        <img src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" class="buy-image">
                         <div class="destroy-btn">
                             <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
                                 @csrf
@@ -93,7 +107,9 @@
 
                         {{-- Edit Button --}}
                         <button onclick="toggleEditForm({{ $buy->id }})">編集するで</button>
+
             </div>
+
             @endforeach
                 <div class="form-check">
                     {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
@@ -101,20 +117,45 @@
                     カレー
                     {{-- </label> --}}
                 </div>
-                {{-- {{ $buys->links() }}   pagination system --}}
-        
+                {{-- {{ $buys->links() }}   pagination system --}}        
+        </div>
 
-        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
-            @csrf
-            <div class="post-box">
-                <input type="text" name="ingredient" placeholder="具材名">
-                <input type="text" name="amount" placeholder="必要数量">
-                <input type="text" name="place" placeholder="買う場所">
-                <input type="text" name="who_buy" placeholder="買って帰る人">
-                <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
-                <button type="submit" class="submit-btn">必要具材追加</button>
-            </div>
-        </form>
+        {{-- @foreach($comments as $comment)
+    <div class="tweet-box">
+        <a href="{{ route('comment', [$comment->user->id])}}"><img src="{{ asset('storage/images/'.$comment->user->image) }}" alt=""></a>
+        <div>{{ $comment->comment }}</div>
+        <div class="destroy_btn">
+            @if($comment->user_id == Auth::user()->id)
+            <form action="{{ route('destroyComment', [$comment->id]) }}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="削除">
+            </form>
+            @endif
+        </div>
+    </div>
+    @endforeach --}}
+    {{-- {{ $comments->links() }} --}}
+
+    <form action="{{ route('postComment') }}" method="post">
+        @csrf
+        <div class="post-box">
+            <input type="text" name="comment" placeholder="伝言">
+            {{-- <input type="number" name="user_id" value="{{ Auth::id() }}" hidden> --}}
+            <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
+            <button type="submit" class="submit-btn">comment</button>
+            {{-- {{ $menu->id }}
+            {{ Auth::id() }} --}}
+            {{-- {{ $menu->id }} --}}
+        </div>
+    </form>
+    {{-- <h1>test</h1> --}}
+    @foreach($menu->comments as $item)
+    <div class="comment">
+        <p>{{ $item->comment }}</p>
+        <!-- Display other comment attributes as needed -->
+    </div>
+@endforeach
 
         @if ($errors->any())
     <div class="alert alert-danger">
@@ -126,6 +167,11 @@
     </div>
     @endif
 
+
+</div>
+</div>
+{{-- @include('buy.comment') --}}
+<script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script>
     </main>
 
     <script>

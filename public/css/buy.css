@@ -79,3 +79,7 @@ main{
 .buy-line > div{
     margin-right:20px;
 }
+
+.buy-image {
+  width: 200px;
+}

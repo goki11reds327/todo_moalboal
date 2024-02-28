@@ -17,7 +17,7 @@
 <body>
     <header>
         <div class="display_btn">
-            <a href="{{ route('profile') }}" class="profile">
+            <a href="{{ route('show', Auth::user()->user_image) }}" class="profile">
                 <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </a>
@@ -35,7 +35,7 @@
         <div id="app" class="container">
             @foreach($menus as $menu)
                     <div class="item monday">
-                        <a href="#" class="box">
+                        <a href="{{ route('buy.index',$menu->id) }}" class="box">
                             <p class="day-number">{{ $menu->date }} </p>
                             <p class="day-title">{{ $menu->title }}</p>
                             <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像"  class="menu-img">

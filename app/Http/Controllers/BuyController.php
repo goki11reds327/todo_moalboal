@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Buy;
+use App\Models\Menu;
 
 class BuyController extends Controller
 {
     //
-    function index()
+    function index($menu_id)
 {
-    $buys = Buy::all();
-    return view('buy.index',['buys'=>$buys]);
+    // dd($menu_id);
+    $buys = Buy::where('menu_id', $menu_id)->get();
+    $menu = Menu::where('id', $menu_id)->first();
+    // dd($menu);
+    return view('buy.index',['buys'=>$buys, 'menu' => $menu]);
 }
 
     public function store(Request $request)
