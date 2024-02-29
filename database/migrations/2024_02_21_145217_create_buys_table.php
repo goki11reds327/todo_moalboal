@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('buys', function (Blueprint $table) {
-            $table->increments('id');
+
+            $table->increments('id')->nullable();
             $table->boolean('is_checked')->default(false);
-            $table->string('ingredient');
-            $table->string('amount');
-            $table->string('place');
-            $table->string('who_buy');
-            $table->string('date');
-            $table->foreignId('user_id')->constrained;
-            $table->text('item_image')->nullable;
-            $table->foreignId('menu_id')->constrained;
+            $table->string('ingredient')->nullable();
+            $table->string('amount')->nullable();
+            $table->string('place')->nullable();
+            $table->string('who_buy')->nullable();
+            $table->string('date')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained;
+            $table->text('item_image')->nullable();
+            $table->foreignId('menu_id')->nullable()->constrained;
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ function index()
     // $menus = Menu::all();
     // return view('menu.index',['menus'=>$menus]);
     // Retrieve paginated menu items from the database
-    $menus = Menu::orderBy('created_at','desc')->paginate(7); // Retrieve 7 menu items per page
+    $menus = Menu::orderBy('date','desc')->paginate(7); // Retrieve 7 menu items per page
     
     // Pass the paginated menu items to the view
     return view('menu.index', compact('menus'));
@@ -82,7 +82,7 @@ function update(Request $request,$id) //どのIDを紐づけているのか$id�
     if ($request->hasFile('pre_image')) {
         $image = $request->file('pre_image');
         $imageName = $image->getClientOriginalName();
-        $image->storeAs('public/img', $imageName);
+        $image->storeAs('storage/img', $imageName);
         $menu->pre_image = $imageName;
     }
 
