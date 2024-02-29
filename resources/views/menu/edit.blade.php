@@ -47,7 +47,7 @@
         <!-- updateボタン -->
         <div class="add-button">
             <button id="addButton">update</button>
-        </div>        
+        </div>    
     </form>
 </main>
 <script>
