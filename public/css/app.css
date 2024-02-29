@@ -194,7 +194,13 @@ body{
   border: #fff solid 1px;
   padding: 10px;
   border-radius: 6%;
-  
+  margin:0 20px;
+  transition: 0.3s;
+}
+
+.change-btn:hover{
+  background-color: rgb(95, 70, 48);
+  transform: scale(1.1);
 }
 
 /* ＝＝＝＝＝＝＝こっから下menu/show用 ＝＝＝＝＝＝＝*/
