@@ -1,7 +1,9 @@
 body{
     background-color: #FCFFE7;
+    color: rgb(95, 70, 48);
+    font-family: "M PLUS 1p";
   }
-  
+
 /* ここからヘッダーの修飾 */
 .display_btn{
     display: flex;
@@ -24,7 +26,7 @@ body{
   height: 80%;
   aspect-ratio: 1/1;
   border-radius: 100px;
-  background-color: gray;
+  background-color: antiquewhite;
   overflow: hidden;
   margin: 10px;
 }
@@ -54,22 +56,51 @@ main{
     padding:2em 1em 1em; /* ボックス内側余白 */
     position:relative; /*配置(ここを基準に)*/
     width: 90%;
+    max-width: 500px;
     background-color: #E0D8B0;
+    border-radius: 19px;
 }
 
+
+
+/* チェックリストの題名 */
+
+.menu-title{
+  font-size: xx-large;
+  font-weight: bold;
+  border-bottom: 3px solid;
+  text-align: center;
+}
+
+.list-title{
+  display: flex;
+  align-items: center;
+}
+.list-checkbox{
+  margin: 4px 4px 4px 0;
+  font-size:x-large;
+}
+.list-detail{
+  width: 80%;
+  text-align: center;
+}
+
+/* チェックリスト一つひとつ */
 .buy-line{
-    display:flex;
-    /* justify-content: space-between; */
+  /* display:flex; */
+  /* justify-content: space-between; */
+
+}
+.list-title-text{
+  font-size: 12px;
 }
 
-h1{
-  font-size: 30px;
-  margin:20px auto;
+.list-food{
+  max-width: 50%;
 }
 
-span{
-  font-size: 14px;
-  color: brown;
+.list-imagebox{
+  max-width: 50%;
 }
 
 .food-image{
@@ -77,43 +108,71 @@ span{
 }
 
 .dd{
-  background-color: palevioletred;
+  background-color: #FCFFE7;
 }
 
-.gg-btn {
-	display: inline-block;
-	text-align: center;
-	vertical-align: middle;
-	text-decoration: none;
-	position: relative;
-	/* width: 120px; */
-	margin: auto;
-	/* padding: 1rem 4rem; */
-	font-weight: bold;
+/* 削除編集ボタン */
+.btn-area{
+  position: absolute;
+  right: 10px;
+  width: 10vw;
+}
+.mini-btn{
+  border: none;
 	border-radius: 10px;
-	color: #000000;
-	border: 3px solid #E0D8B0;
-	/* box-shadow: 5px 5px #E0D8B0; */
-	transition: 0.3s ease-in-out;
+	color: white;
+  background-color: rgb(95, 70, 48);
+  font-size:xx-small;
+  
 }
-.gg-btn:hover {
-	box-shadow: none;
-	transform: translate(5px, 5px);
-	color: #E0D8B0;
+.mini-btn:hover{
+  transform: scale(1.1);
 }
+
+/* 編集 */
+.list-edit > input{
+
+}
+
 
 .buy-line {
-  display: flex;
-  align-items: start;
+
 }
 
-.buy-line label, .buy-line img {
-  margin-right: 10px; /* Adjust the margin as needed */
-  width: 20%;
+/* 追加ボタン */
+.post-box{
+  width: 90%;
+  max-width: 500px;
+  background-color: #E0D8B0;
+  border-radius: 10px;
+  margin: 1em auto;
+  padding:2em 1em 1em;
 }
 
-.buy-line img{
-  width:100px;
+.list-add{
+  border: rgb(95, 70, 48) 2px solid;
+  border-radius: 5%;
+  background-color: #FCFFE7;
+  margin: 2px;
+}
+
+.add-ing{
+  width: 10em;
+}
+.add-amount{
+  width: 5em;
+}
+.add-where{
+  width: 5em;
+}
+.add-who{
+  width: 4em;
+}
+
+
+
+.list-add-file{
+
 }
 
 .add-btn{
@@ -121,20 +180,11 @@ span{
   border: #000000 solid 3px;
 }
 
-@media screen and (max-width:800px){
-.buy-line {
-    margin-top:10px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Adjust the gap as needed */
-    background-color: chocolate;
-}
-*{
-  font-size: 20px;
-}
-.buy-line label, .buy-line img {
-    margin-bottom: 0; 
-    margin-right: 0;/* Adjust the margin as needed */
-}
-
+.comment{
+  width: 90%;
+  max-width: 500px;
+  background-color: #E0D8B0;
+  border-radius: 10px;
+  margin: 1em auto;
+  padding:2em 1em 1em;
 }
