@@ -51,26 +51,27 @@
 
                 <div class="form-check buy-line">
                     {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
-
-                    <label class="form-check-label buylist-text" for="flexCheckDefault">
-                        <span>：完了したらチェックやで</span>
-                        <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
-                    </label >          
-                    <label for=""><span>⭐️必要具材</span>
-                    <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
-                    </label>
-                    <label for=""><span>⭐️買う量</span>
-                    <div class="amount dd" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
-                    </label>
-                    <label for=""><span>⭐️買う場所</span>
-                    <div class='wherebuy dd' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
-                    </label>
-                    <label for=""><span>⭐️買う人</span>
-                    <div class='who_buy dd' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
-                    </label><span>⭐️イメージ画像</span>
-                    <label for="">
-                    <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
-                    </label>
+                    <div>
+                        <label class="form-check-label buylist-text" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
+                        </label >          
+                        <label for="">
+                            <span class="list-title-text">必要具材</span>
+                            <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
+                        </label>
+                        <label for="">
+                            <span class="list-title-text">買う量</span>
+                            <div class="amount dd" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
+                        </label>
+                        <label for="">
+                            <span class="list-title-text">買う場所</span>
+                            <div class='wherebuy dd' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
+                        </label>
+                        <label for="">
+                            <span class="list-title-text">買う人</span>
+                            <div class='who_buy dd' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
+                        </label>
+                    </div>
                     {{-- Edit Form --}}
                     <div id="editForm_{{ $buy->id }}" style="display: none;">
                         <form action="{{ route('buy.update', $buy->id) }}" method="post" >
@@ -80,7 +81,7 @@
                             <input type="text" name="edited_amount" value="{{ $buy->amount }}">
                             <input type="text" name="edited_place" value="{{ $buy->place }}">
                             <input type="text" name="edited_who_buy" value="{{ $buy->who_buy }}">
-                            <button type="submit" class="gg-btn">更新</button>
+                            <button type="submit" class="mini-btn">更新</button>
                         </form>
                     </div>
                     <div class="btn-area">
@@ -88,31 +89,25 @@
                             <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
-                                    削除する
+                                <button class="mini-btn" type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                    削除
                                 </button>
                             </form>
                         </div style="padding:10px 40px">
                         {{-- Edit Button --}}
                         <div class="destroy-btn gg-btn">
-                        <button onclick="toggleEditForm({{ $buy->id }})">編集するで</button>
+                            <button class="mini-btn" onclick="toggleEditForm({{ $buy->id }})">編集</button>
                         </div style="padding:10px 40px">
+                    </div>
+                    <div>
+                        <label for="">
+                            <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
+                        </label>
                     </div>
                 </div>  
 
             @endforeach
-                {{-- <div class="form-check"> --}}
-                    {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
-                    {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
 
-                    
-                        {{ $menu->title }}
-                        {{-- {{ $menu->comment }} --}}
-
-
-                    {{-- </label> --}}
-                {{-- </div> --}}
-                {{-- {{ $buys->links() }}   pagination system --}}        
         </div>
 
         <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data" id="myForm">
@@ -175,7 +170,7 @@
     @endif
 
 
-    <div class="buylist-box"> 
+    <div class=""> 
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ $message }}</strong>
