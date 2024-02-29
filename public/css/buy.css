@@ -47,7 +47,7 @@ body{
 
 /* ==メインの装飾== */
 main{
-  margin: 100px 0 0;   
+  margin: 120px 0 0;   
 }
 
 .buylist-box{
@@ -61,9 +61,22 @@ main{
     border-radius: 19px;
 }
 
-
-
 /* チェックリストの題名 */
+.day-number{
+  font-family: 'Archivo Black', sans-serif;
+  background-color: rgba(255,255,255,.5);/* テープ背景色と透過*/
+	border-left: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ左*/
+	border-right: 2px dotted rgba(0,0,0,.1);/* テープのギザギザ右*/
+	box-shadow: 0 0 5px rgba(0,0,0,0.2); /*テープ影*/
+	transform: rotate(-2deg);/*テープの傾き*/
+	font-size: 1em;/*タイトル文字の大きさ*/
+	color: rgb(95, 70, 48); /*タイトル文字色 */
+	padding: 10px 20px;/*タイトルの余白*/
+	line-height: 1;/*タイトルの行の高さ*/
+	position:absolute;/*配置(ここを動かす)*/
+	top: -15px; /*上から（-10px）移動*/
+	left: 20px; /*左から(20px)移動*/
+}
 
 .menu-title{
   font-size: xx-large;
@@ -89,8 +102,14 @@ main{
 .buy-line{
   /* display:flex; */
   /* justify-content: space-between; */
+  width: 90%;
 
 }
+
+.list-line{
+  display: flex;
+}
+
 .list-title-text{
   font-size: 12px;
 }
@@ -115,7 +134,6 @@ main{
 .btn-area{
   position: absolute;
   right: 10px;
-  width: 10vw;
 }
 .mini-btn{
   border: none;
@@ -157,10 +175,10 @@ main{
 }
 
 .add-ing{
-  width: 10em;
+  width: 6em;
 }
 .add-amount{
-  width: 5em;
+  width: 4em;
 }
 .add-where{
   width: 5em;
@@ -176,15 +194,63 @@ main{
 }
 
 .add-btn{
-  color:darkorange;
-  border: #000000 solid 3px;
+  border: none;
+  color:white;
+  background-color: rgb(95, 70, 48);
+  border-radius: 3px;
+  margin: 10px;
+}
+.add-btn:hover{
+  transform: scale(1.1);
 }
 
-.comment{
+
+/* コメント機能 */
+.comment-box{
   width: 90%;
   max-width: 500px;
-  background-color: #E0D8B0;
-  border-radius: 10px;
-  margin: 1em auto;
-  padding:2em 1em 1em;
+  border-radius: 19px;
+  margin: 2em auto; /* ボックスの余白 */
+	position:relative; /* 配置(ここを基準に) */
+	border: 2px solid #E0D8B0/* ボックスの線 (太さ　種類　色)*/
+}
+.comment-title{
+  color: rgb(95, 70, 48);
+  font-family: 'Archivo Black', sans-serif;
+  background-color:#FCFFE7; /* タイトル背景色 */
+	font-size: 1em;/* タイトル文字の大きさ */
+	font-weight:800;
+	padding: 0 5px;/*タイトルの余白*/
+	line-height: 1;/*タイトルの行の高さ*/
+	position:absolute;	/* 配置(ここを動かす) */
+	top: -5px; /*上から（-5px）移動*/
+	left: 20px; /*左から(20px)移動*/
+}
+.comment{
+  position: relative;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 90%;
+  color: rgb(95, 70, 48);
+  font-size: 12px;
+  background: #E0D8B0;
+  border-radius: 5px;
+}
+.comment:before {
+  content: "";
+  position: absolute;
+  top: 55%;
+  left: -15px;
+  margin-top: -5px;
+  border: 5px solid transparent;
+  border-right: 10px solid #E0D8B0;
+}
+
+.comment-post-box{
+  width: 90%;
+  max-width: 500px;
+  border-radius: 19px;
+  margin: 2em auto; /* ボックスの余白 */
+	position:relative; /* 配置(ここを基準に) */
 }
