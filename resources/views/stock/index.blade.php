@@ -131,7 +131,7 @@
         <div class=itembutton>
             <button type="button" class="box btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 ＋アイテムの追加
-              </button>
+            </button>
         </div>
 
         
