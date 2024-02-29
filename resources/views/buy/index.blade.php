@@ -133,7 +133,7 @@
                     <label class="form-check-label" for="flexCheckDefault">Is Checked</label>
                 </div>
 
-                <button disabled type="submit" class="submit-btn gg-btn add-btn" id="add_btn">＋必要具材追加</button>
+                <button type="submit" class="submit-btn gg-btn add-btn" id="add_btn">＋必要具材追加</button>
 
             </div>
         </form>
@@ -187,7 +187,7 @@
         <!-- 他の要素の表示 -->
     </div>
 
-    @endif
+
 {{-- <script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script> --}}
     
     <div id="question" style="display: none;">
@@ -364,6 +364,7 @@
 
         if(who_buy != null && place != null && amount != null && ingredientName != null){
             add_btn.disabled = false;
+        }
         }
         
         // function handleImageChange(event) {
