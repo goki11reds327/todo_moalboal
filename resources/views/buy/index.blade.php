@@ -36,11 +36,11 @@
             {{-- {{ $menu->title }} --}}
         </div>
         <div class="buylist-box"> 
-            <div>
-                {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
-                {{ $menu->comment }}
+            <p class="menu-title">{{ $menu->title }}</p>
+            <div class="list-title">
+                <p class="list-checkbox">☑︎</p>
+                <p class="list-detail">内容</p>
             </div>
-            <h1>⭐️買うものリスト</h1>
             @if ($message = Session::get('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>{{ $message }}</strong>
@@ -48,6 +48,7 @@
                 </div>
             @endif
             @foreach($buys as $buy)
+
                 <div class="form-check buy-line">
                     {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
 
@@ -98,16 +99,18 @@
                         </div style="padding:10px 40px">
                     </div>
                 </div>  
+
             @endforeach
                 {{-- <div class="form-check"> --}}
                     {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
                     {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
+
                     
                         {{ $menu->title }}
                         {{-- {{ $menu->comment }} --}}
 
-                    {{-- </label> --}}
 
+                    {{-- </label> --}}
                 {{-- </div> --}}
                 {{-- {{ $buys->links() }}   pagination system --}}        
         </div>
@@ -115,7 +118,7 @@
         <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data" id="myForm">
             @csrf
             <div class="post-box">
-
+            
                 <input type="text" name="ingredient" placeholder="具材名" id="ingredientName">
                 <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
                 <input type="text" name="date" value="{{ $menu->date }}" hidden>
@@ -144,10 +147,20 @@
         </form>
         {{-- <h1>test</h1> --}}
     @foreach($menu->comments as $item)
-        <div class="comment">
-            <p>{{ $item->comment }}</p>
-            <!-- Display other comment attributes as needed -->
-        </div>
+
+    <div class="comment">
+        <p>{{ $item->comment }}</p>
+    </div>
+        <!-- Display other comment attributes as needed -->
+    {{-- </div>
+    <form action="{{ route('destroyComment', $comment->id) }}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit" class="show-btn" onclick="return confirm('本当に削除しますか？')">
+            <span>削除する</span>
+        </button>
+    </form> --}}
+
     @endforeach
 
 
@@ -214,6 +227,7 @@
     </main>
     
     @if ($confirmation = Session::get('confirmation'))
+    @endif
 
         <script>
 
