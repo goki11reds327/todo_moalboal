@@ -83,6 +83,7 @@ class BuyController extends Controller
         // dd($tweet);
         $buy->delete();
 
+        return back();
         return redirect()->route('buy.index');
     }
 

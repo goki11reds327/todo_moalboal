@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('who_buy');
             $table->string('date');
             $table->foreignId('user_id')->constrained;
-            $table->text('item_image')->nullable;
+            $table->text('item_image')->nullable();
             $table->foreignId('menu_id')->constrained;
             $table->timestamps();
         });
