@@ -180,7 +180,6 @@
     </div>
   
     
-    </main>
     {{-- <form id="buyForm" method="post" action="{{ route('buy.store') }}">
         @csrf
         <!-- other form fields... -->
@@ -206,7 +205,7 @@
 <script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script>
     </main>
     
-    @if ($confirmation = Session::get('confirmation'))
+    {{-- @if ($confirmation = Session::get('confirmation')) --}}
 
         <script>
 
@@ -292,7 +291,7 @@
             //     .catch(error => console.error('Error:', error));
             // }
         </script>
-    @endif
+    {{-- @endif --}}
     <script>
         const item_image = document.getElementById('item_image')
         const add_btn = document.getElementById('add_btn')
