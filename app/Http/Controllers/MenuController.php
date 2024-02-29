@@ -50,7 +50,6 @@ function store(Request $request)
 function show($id)
 {
     $menu = Menu::find($id);
-
     return view('menu.show',['menu'=>$menu]);
 }
 

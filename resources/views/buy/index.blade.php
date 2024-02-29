@@ -23,7 +23,7 @@
     <header>
         <div class="display_btn">
             <span class="profile">
-                <div class="self_image"><img src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></div>
+                <a href="{{ route('show', Auth::user()->user_image) }}" ><img class="self_image" src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></a>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </span>
             <a href="{{ route('menu.index') }}" class="btn">menu</a>
@@ -33,76 +33,123 @@
     <main>
         <div class="date-box">
             {{-- <p>{{ Auth::menu()->title }}</p> menuのタイトル表示 --}}
+            {{-- {{ $menu->title }} --}}
         </div>
         <div class="buylist-box"> 
             <div>
                 {{-- <p>{{ Auth::menu()->comment }}</p> menuのコメント表示 --}}
+                {{ $menu->comment }}
             </div>
-            <p>rrr</p>
+            <h1>⭐️買うものリスト</h1>
             @if ($message = Session::get('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong>{{ $message }}</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        @endif
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
             @foreach($buys as $buy)
-            <p>必要具材　必要数量　購入予定場所　買って帰る人</p>
             <div class="form-check buy-line">
-                 {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label buylist-text" for="flexCheckDefault"></label>
-                        <<!-- Inside the foreach loop where you display buy information -->
-                        <div class="ingredients" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
-                        <div class="amount" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
-                        <div class='wherebuy' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
-                        <div class='who_buy' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
-                        <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
-                        <div class="destroy-btn">
-                            <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
-                                    削除する
-                                </button>
-                            </form>
-                        </div style="padding:10px 40px">
-                        {{-- Edit Form --}}
-                        <div id="editForm_{{ $buy->id }}" style="display: none;">
-                            <form action="{{ route('buy.update', $buy->id) }}" method="post" >
-                                @csrf
-                                @method('put')
-                                <input type="text" name="edited_ingredient" value="{{ $buy->ingredient }}">
-                                <input type="text" name="edited_amount" value="{{ $buy->amount }}">
-                                <input type="text" name="edited_place" value="{{ $buy->place }}">
-                                <input type="text" name="edited_who_buy" value="{{ $buy->who_buy }}">
-                                <button type="submit">更新</button>
-                            </form>
-                        </div>
-
-                        {{-- Edit Button --}}
-                        <button onclick="toggleEditForm({{ $buy->id }})">編集するで</button>
-            </div>
+                {{-- 使ったboostrap https://getbootstrap.jp/docs/5.3/forms/checks-radios/ --}}
+                        
+                <label class="form-check-label buylist-text" for="flexCheckDefault">
+                    <span>：完了したらチェックやで</span>
+                    <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
+                </label >          
+                <label for=""><span>⭐️必要具材</span>
+                <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
+                </label>
+                <label for=""><span>⭐️買う量</span>
+                <div class="amount dd" id="amount_{{ $buy->id }}">{{ $buy->amount }}</div>
+                </label>
+                <label for=""><span>⭐️買う場所</span>
+                <div class='wherebuy dd' id="place_{{ $buy->id }}">{{ $buy->place }}</div>
+                </label>
+                <label for=""><span>⭐️買う人</span>
+                <div class='who_buy dd' id="who_buy_{{ $buy->id }}">{{ $buy->who_buy }}</div>
+                </label><span>⭐️イメージ画像</span>
+                <label for="">
+                <img class="food-image" src="{{ asset('storage/img/'.$buy->item_image)}}" alt="画像" >
+                </label>
+                {{-- Edit Form --}}
+                <div id="editForm_{{ $buy->id }}" style="display: none;">
+                    <form action="{{ route('buy.update', $buy->id) }}" method="post" >
+                        @csrf
+                        @method('put')
+                        <input type="text" name="edited_ingredient" value="{{ $buy->ingredient }}">
+                        <input type="text" name="edited_amount" value="{{ $buy->amount }}">
+                        <input type="text" name="edited_place" value="{{ $buy->place }}">
+                        <input type="text" name="edited_who_buy" value="{{ $buy->who_buy }}">
+                        <button type="submit" class="gg-btn">更新</button>
+                    </form>
+                </div>
+                <div class="btn-area">
+                    <div class="destroy-btn gg-btn">
+                        <form action="{{ route('buy.destroy', ['id' => $buy->id]) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" value="削除" onclick="return confirm('本当に削除しますか？')">
+                                削除する
+                            </button>
+                        </form>
+                    </div style="padding:10px 40px">
+                    {{-- Edit Button --}}
+                    <div class="destroy-btn gg-btn">
+                    <button onclick="toggleEditForm({{ $buy->id }})">編集するで</button>
+                    </div style="padding:10px 40px">
+                </div>
+            </div>  
             @endforeach
-                <div class="form-check">
+                {{-- <div class="form-check"> --}}
                     {{-- <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> --}}
                     {{-- <label class="form-check-label" for="flexCheckChecked"> --}}
-                    カレー
+                    
+                        {{ $menu->title }}
+                        {{ $menu->comment }}
+
                     {{-- </label> --}}
-                </div>
-                {{-- {{ $buys->links() }}   pagination system --}}
-        
+
+                {{-- </div> --}}
+                {{-- {{ $buys->links() }}   pagination system --}}        
+        </div>
 
         <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data" id="myForm">
             @csrf
             <div class="post-box">
+
                 <input type="text" name="ingredient" placeholder="具材名" id="ingredientName">
+                <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
+                <input type="text" name="date" value="{{ $menu->date }}" hidden>
+
                 <input type="text" name="amount" placeholder="必要数量">
                 <input type="text" name="place" placeholder="買う場所">
                 <input type="text" name="who_buy" placeholder="買って帰る人">
                 <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
-                <button onclick="checkData(event)" id="submitBtn" class="submit-btn">必要具材追加</button>
+
+
+                <button type="submit" class="submit-btn gg-btn add-btn">＋必要具材追加</button>
             </div>
         </form>
+        <form action="{{ route('postComment') }}" method="post">
+            @csrf
+            <div class="post-box">
+                <input type="text" name="comment" placeholder="伝言">
+                {{-- <input type="number" name="user_id" value="{{ Auth::id() }}" hidden> --}}
+                <input type="number" name="menu_id" value="{{ $menu->id }}" hidden>
+                <button type="submit" class="submit-btn">comment</button>
+                {{-- {{ $menu->id }}
+                {{ Auth::id() }} --}}
+                {{-- {{ $menu->id }} --}}
+
+            </div>
+        </form>
+        {{-- <h1>test</h1> --}}
+    @foreach($menu->comments as $item)
+    <div class="comment">
+        <p>{{ $item->comment }}</p>
+        <!-- Display other comment attributes as needed -->
+    </div>
+    @endforeach
+
 
         @if ($errors->any())
     <div class="alert alert-danger">
@@ -113,6 +160,7 @@
         </ul>
     </div>
     @endif
+
 
     <div class="buylist-box"> 
         @if ($message = Session::get('success'))
@@ -161,6 +209,12 @@
         <button type="submit">Add Ingredient</button>
     </form> --}}
     
+
+<script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script>
+    </main>
+    
+    @if ($confirmation = Session::get('confirmation'))
+
     <script>
 
         const myForm = document.getElementById('myForm')

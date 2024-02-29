@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BuyController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -44,10 +44,14 @@ Route::get('/user/show1/{id}', [UserController::class, 'show1'])->name('show1');
 Route::get('/user/show2/{id}', [UserController::class, 'show2'])->name('show2');
 
 
-Route::get('/buy/index',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
+Route::get('/buy/index/{id}',[App\Http\Controllers\BuyController::class, 'index'])->name('buy.index');
 Route::post('/buy/store',[App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
 Route::delete('/buy/destroy/{id}', [App\Http\Controllers\BuyController::class, 'destroy'])->name('buy.destroy');
 Route::put('/buy/{id}', [App\Http\Controllers\BuyController::class, 'update'])->name('buy.update');
+
+Route::get('/buy/comment',[App\Http\Controllers\CommentController::class, 'comment'])->name('comment');
+Route::post('/buy/postComment', [App\Http\Controllers\CommentController::class, 'postComment'])->name('postComment');
+Route::delete('/buy/delete/{id}', [App\Http\Controllers\CommentController::class, 'destroyComment'])->name('destroyComment');
 
 Route::get('/stock',[App\Http\Controllers\StockController::class, 'index'])->name('stock.index');
 Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'create'])->name('stock.create');
@@ -55,5 +59,7 @@ Route::get('/stock/create', [App\Http\Controllers\StockController::class, 'creat
 Route::post('/stock/store',[App\Http\Controllers\StockController::class, 'store'])->name('stock.store');
 Route::delete('/stock/{id}', [App\Http\Controllers\StockController::class, 'destroy'])->name('stock.destroy');
 
+
 Route::get('/profile',[App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 Route::get('/ingredient',[App\Http\Controllers\BuyController::class, 'getIngredient'])->name('ingredient');
+
