@@ -16,6 +16,14 @@
 <body>
     <header>
         {{-- <div class="self_image"><img src="{{ asset('storage/img/' . $user-> user_image) }}" alt=""></div> --}}
+        <div class="display_btn">
+            <span class="profile">
+                <a href="{{ route('show', Auth::user()->user_image) }}" ><img class="self_image" src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></a>
+                {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
+            </span>
+            <a href="{{ route('menu.index') }}" class="btn">menu</a>
+            <a href="{{ route('stock.index') }}" class="btn">冷蔵庫</a>
+        </div>
     </header>
 
     <main>
