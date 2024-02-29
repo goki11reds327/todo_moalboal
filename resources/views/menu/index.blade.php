@@ -35,7 +35,7 @@
         <div id="app" class="container">
             @foreach($menus as $menu)
                     <div class="item monday">
-                        <a href="{{ route('buy.index',$menu->id) }}" class="box">
+                        <a href="" class="box">
                             <p class="day-number">{{ $menu->date }} </p>
                             <p class="day-title">{{ $menu->title }}</p>
                             <img src="{{ asset('storage/img/'.$menu->pre_image)}}" alt="画像"  class="menu-img">
@@ -45,6 +45,7 @@
                             {{ $menu->content }}
                         </div>
                         <div class="detail">
+                        <a href="{{ route('buy.index',$menu->id) }}" class="change-btn"><span>ToBuyリストへ</span></a>
                         <a href="{{ route('menu.show',$menu->id) }}" class="change-btn"><span>編集・削除</span></a>
                         </div>
                     </div>

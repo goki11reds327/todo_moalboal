@@ -17,6 +17,7 @@
     {{-- Style --}}
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/buy.css') }}">
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -111,7 +112,7 @@
                 {{-- {{ $buys->links() }}   pagination system --}}        
         </div>
 
-        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data">
+        <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data" id="myForm">
             @csrf
             <div class="post-box">
                 <input class="list-add add-ing" type="text" name="ingredient" placeholder="具材名">
@@ -134,6 +135,7 @@
                 {{-- {{ $menu->id }}
                 {{ Auth::id() }} --}}
                 {{-- {{ $menu->id }} --}}
+
             </div>
         </form>
         {{-- <h1>test</h1> --}}
@@ -162,19 +164,98 @@
         </ul>
     </div>
     @endif
+
+
+    <div class="buylist-box"> 
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    
+        @if ($message = Session::get('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ $message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+    
+        <!-- 他の要素の表示 -->
+    </div>
+    
+    <div id="question" style="display: none">
+        <p>This ingredient already exists. Are you sure you want to buy more?</p>
+        <button onclick="isYes()">yes</button>
+        <button>no</button>
+    </div>
+  
+    
+    </main>
+    {{-- <form id="buyForm" method="post" action="{{ route('buy.store') }}">
+        @csrf
+        <!-- other form fields... -->
+    
+        @if ($confirmation = Session::get('confirmation'))
+            <script>
+                var userConfirmation = confirm("{{ $confirmation }}");
+                if (userConfirmation) {
+                    // Create a hidden input element and append it to the form
+                    var hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = 'user_confirmation';
+                    hiddenInput.value = 'yes';
+                    document.getElementById('buyForm').appendChild(hiddenInput);
+                }
+            </script>
+        @endif
+    
+        <button type="submit">Add Ingredient</button>
+    </form> --}}
+    
+
 <script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script>
     </main>
     
     @if ($confirmation = Session::get('confirmation'))
+    @endif
+
     <script>
-        var userConfirmation = confirm("{{ $confirmation }}");
-        if (!userConfirmation) {
-            // If the user cancels, prevent the form submission or take appropriate action
-            // For example: document.getElementById('yourForm').reset();
+
+        const myForm = document.getElementById('myForm')
+        const submitBtn = document.getElementById('submitBtn')
+        function isYes() {
+            const question = document.getElementById('question')
+
+            console.log('fuck')
+            question.style.display = 'block'
+            submitBtn.type = 'submit';
+            myForm.submit()
         }
-    </script>
-@endif
-    <script>
+
+        function checkData(event) {
+            event.preventDefault()
+            const ingredientName = document.getElementById('ingredientName').value
+            const question = document.getElementById('question')
+            $.ajax({
+                type: 'GET',
+                url: "{{ route('ingredient') }}",
+                data: {
+                    ingredient: ingredientName
+                },
+                success: function( data ) {
+                    console.log(data)
+                    if(data == 1) question.style.display = 'block'
+                    else isYes()
+                },
+                error: function(xhr, status, error) {
+                    // check status && error
+                    console.log('error')
+                },
+                });
+        }
+
+
         function toggleEditForm(id) {
             document.getElementById(`ingredient_${id}`).style.display = 'none';
             document.getElementById(`amount_${id}`).style.display = 'none';
