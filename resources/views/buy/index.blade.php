@@ -214,6 +214,7 @@
     </main>
     
     @if ($confirmation = Session::get('confirmation'))
+    @endif
 
     <script>
 
