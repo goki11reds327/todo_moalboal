@@ -82,7 +82,7 @@ function update(Request $request,$id) //どのIDを紐づけているのか$id�
     if ($request->hasFile('pre_image')) {
         $image = $request->file('pre_image');
         $imageName = $image->getClientOriginalName();
-        $image->storeAs('public/img', $imageName);
+        $image->storeAs('storage/img', $imageName);
         $menu->pre_image = $imageName;
     }
 

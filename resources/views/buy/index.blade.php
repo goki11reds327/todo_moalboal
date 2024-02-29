@@ -23,7 +23,7 @@
     <header>
         <div class="display_btn">
             <span class="profile">
-                <a href="{{ route('show', Auth::user()->user_image) }}" ><img class="self_image" src="{{ asset('storage/img/' . Auth::user()->user_image) }}" alt=""></a>
+                <a href="{{ route('show', Auth::user()->user_image) }}" ><img class="self_image" src="{{ asset('public/img/' . Auth::user()->user_image) }}" alt=""></a>
                 {{-- <div id="username">{{ Auth::user()->name }} さん</div> --}}
             </span>
             <a href="{{ route('menu.index') }}" class="btn">menu</a>
