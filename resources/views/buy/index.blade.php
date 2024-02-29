@@ -112,6 +112,7 @@
 
         <form action="{{ route('buy.store') }}" method="post"  enctype="multipart/form-data" id="myForm">
             @csrf
+
             <div class="post-box">          
                 <input class="list-add add-ing" type="text" name="ingredient" placeholder="具材名" id="ingredientName">
                 <input class="list-add" type="number" name="menu_id" value="{{ $menu->id }}" hidden>
@@ -120,7 +121,9 @@
                 <input class="list-add add-where" type="text" name="place" placeholder="買う場所" id="place">
                 <input class="list-add add-who" type="text" name="who_buy" placeholder="買う人" id="who_buy">
                 <input class="list-add-file" type="file" name="item_image" id="item_image" placeholder="具材イメージ" accept="img/*">
+
                 <button disabled type="submit" class="submit-btn gg-btn add-btn" id="add_btn">＋必要具材追加</button>
+
             </div>
         </form>
         <div class="comment-box">
@@ -173,10 +176,14 @@
         <!-- 他の要素の表示 -->
     </div>
     
-    <div id="question" style="display: none">
-        <p>This ingredient already exists. Are you sure you want to buy more?</p>
-        <button onclick="isYes()">yes</button>
-        <button>no</button>
+    <div id="question" style="display: none;">
+        <div class="question-container">
+            <p>This ingredient already exists. Are you sure you want to buy more?</p>
+            <div>
+                <button onclick="isYes()">yes</button>
+                <button onclick="isNo()">no</button>
+            </div>
+        </div>
     </div>
   
     
@@ -210,14 +217,17 @@
         <script>
 
             const myForm = document.getElementById('myForm')
-            const submitBtn = document.getElementById('submitBtn')
+            const submitBtn = document.getElementById('add_btn')
             function isYes() {
                 const question = document.getElementById('question')
-
-                console.log('fuck')
                 question.style.display = 'block'
                 submitBtn.type = 'submit';
                 myForm.submit()
+            }
+
+            function isNo() {
+                const question = document.getElementById('question')
+                question.style.display = 'none'
             }
 
             function checkData(event) {

@@ -251,7 +251,29 @@ main{
 .comment-post-box{
   width: 90%;
   max-width: 500px;
+
   border-radius: 19px;
   margin: 2em auto; /* ボックスの余白 */
 	position:relative; /* 配置(ここを基準に) */
+}
+
+#question {
+  width: 300px;
+  height: 250px;
+  position: fixed;
+  top: 20vh;
+  left: calc(50% - 150px);
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: blue;
+  border-radius: 10px;
+  color: white;
+  padding: 10px;
+
 }
