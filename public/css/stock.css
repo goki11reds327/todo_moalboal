@@ -2,6 +2,7 @@
 
 .display_btn{
   display: flex;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   background-color: rgb(95, 70, 48);
