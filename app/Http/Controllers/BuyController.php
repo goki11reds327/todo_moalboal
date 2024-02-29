@@ -73,10 +73,10 @@ class BuyController extends Controller
     // dd('test');
     $buy = new Buy;
     $validator = $request->validate([
-        'ingredient' => ['required', 'string', 'max:30'],
-        'amount' => ['required', 'string', 'max:10'],
-        'place' => ['required', 'string', 'max:30'],
-        'who_buy' => ['required', 'string', 'max:10']
+        'ingredient' => ['nullable', 'string', 'max:30'],
+        'amount' => ['nullable', 'string', 'max:10'],
+        'place' => ['nullable', 'string', 'max:30'],
+        'who_buy' => ['nullable', 'string', 'max:10']
         // 'item_image' => ['string']
     ]);
 
@@ -109,6 +109,7 @@ class BuyController extends Controller
             $buy->amount = $request->amount;
             $buy->place = $request->place;
             $buy->who_buy = $request->who_buy;
+            $buy->menu_id = $request->menu_id;
 
             $buy->save();
     //         $successMessage = 'Ingredient added successfully.';
