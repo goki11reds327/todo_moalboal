@@ -19,5 +19,5 @@
 <script>
     setTimeout(function() {
         window.location.href = "{{ route('menu.index') }}"; // 5秒後にメニュー一覧ページにリダイレクト
-    }, 5000); // 5000ミリ秒 = 5秒
+    }, 1500); // 5000ミリ秒 = 5秒
 </script>
