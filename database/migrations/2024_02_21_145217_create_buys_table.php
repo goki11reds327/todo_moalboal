@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('buys', function (Blueprint $table) {
+
             $table->increments('id')->nullable();
-            $table->boolean('checkbox')->nullable()->default(false);
+            $table->boolean('is_checked')->default(false);
             $table->string('ingredient')->nullable();
             $table->string('amount')->nullable();
             $table->string('place')->nullable();

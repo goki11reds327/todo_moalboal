@@ -48,6 +48,7 @@ Route::get('/buy/index/{id}',[App\Http\Controllers\BuyController::class, 'index'
 Route::post('/buy/store',[App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
 Route::delete('/buy/destroy/{id}', [App\Http\Controllers\BuyController::class, 'destroy'])->name('buy.destroy');
 Route::put('/buy/{id}', [App\Http\Controllers\BuyController::class, 'update'])->name('buy.update');
+Route::patch('/buy/check', [App\Http\Controllers\BuyController::class, 'checkUpdate'])->name('buy.checkUpdate');
 
 Route::get('/buy/comment',[App\Http\Controllers\CommentController::class, 'comment'])->name('comment');
 Route::post('/buy/postComment', [App\Http\Controllers\CommentController::class, 'postComment'])->name('postComment');
