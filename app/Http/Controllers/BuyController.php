@@ -60,6 +60,7 @@ class BuyController extends Controller
              $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
              return redirect()->back()->with('confirmation', $confirmationMessage);
          }
+        $buy -> is_checked = $request->has('is_checked') ? true : false;
         $buy -> ingredient = $ingredient;
         $buy -> amount = $request -> amount;
         $buy -> place = $request -> place;
@@ -69,11 +70,11 @@ class BuyController extends Controller
         $buy -> date = $request -> date;
 
         $buy -> save();
-      
-            return back();
-        // return redirect()->route('buy.index');
         $successMessage = 'Ingredient added successfully.';
-        return redirect()->route('buy.index')->with('success', $successMessage);
+        return back()->with('success', $successMessage);
+        // return redirect()->route('buy.index');
+        // $successMessage = 'Ingredient added successfully.';
+        // return redirect()->route('buy.index')->with('success', $successMessage);
     }
 
     public function destroy($id)
@@ -86,24 +87,48 @@ class BuyController extends Controller
         return redirect()->route('buy.index');
     }
 
+    public function checkUpdate(Request $request)
+    {
+        $id = $request->input('id');
+        $is_checked = $request->input('is_checked') == 'true' ? true : false;
+
+        $buy = Buy::find($id);
+        $buy->is_checked = $is_checked;
+        $buy->save();
+    }
+
     public function update(Request $request, $id)
     {
+        // return 'test';
+        // dd($request->all());
         $request->validate([
             'edited_ingredient' => 'required|string|max:30',
             'edited_amount' => 'required|string|max:10',
             'edited_place' => 'required|string|max:30',
             'edited_who_buy' => 'required|string|max:10',
+            'is_checked' => 'boolean', // Validate the checkbox value
         ]);
 
         $buy = Buy::findOrFail($id);
+        // $buy->is_checked = $request->has('is_checked') ? true : false;
+
+        // If it's an AJAX request, update the checkbox value
+        if ($request->ajax()) {
+            $buy->is_checked = $request->input('is_checked', false);
+            $buy->save();
+
+            return response()->json(['message' => 'Buy updated successfully']);
+        }
+
         $buy->update([
+            'is_checked' => $request->has('is_checked'),
             'ingredient' => $request->input('edited_ingredient'),
             'amount' => $request->input('edited_amount'),
             'place' => $request->input('edited_place'),
             'who_buy' => $request->input('edited_who_buy'),
         ]);
-
-         return back();
+        $buy->save();
+        return back()->with('success','更新したで');
         return redirect()->route('buy.index')->with('success','更新したで');
     }
 }
@@ -128,6 +153,20 @@ class BuyController extends Controller
 //     return redirect()->route('buy.index')->with('success', 'アイテムが正常に追加されました。');
 // }
 
+// function update(Request $request, $id)
+// {
+//     $request->validate([
+//         'is_checked' => 'boolean', // Validate the checkbox value
+//     ]);
 
+//     $buy = Buy::findOrFail($id);
+
+//     // Update the checkbox value
+//     $buy->update([
+//         'is_checked' => $request->has('is_checked'),
+//     ]);
+
+//     return back()->with('success', 'Buy updated successfully.');
+// }
 
 

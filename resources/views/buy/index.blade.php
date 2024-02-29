@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y0V7aUpIOH3pXxXn9TCeS5qXfddE1yCoeVA3ieh5P0wFegzkE8MKChS/N9eX7KSj" crossorigin="anonymous">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-y0V7aUpIOH3pXxXn9TCeS5qXfddE1yCoeVA3ieh5P0wFegzkE8MKChS/N9eX7KSj" crossorigin="anonymous"> --}}
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></script> --}}
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=archivo-black:400" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
-
+    {{-- checkbox --}}
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+    
     {{-- Style --}}
     <link rel="stylesheet" href="{{ asset('/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/buy.css') }}">
+    
 </head>
 <body>
     <header>
@@ -52,7 +57,7 @@
                         
                 <label class="form-check-label buylist-text" for="flexCheckDefault">
                     <span>：完了したらチェックやで</span>
-                    <input class="form-check-input" type="checkbox" value="完了確認" id="flexCheckDefault">
+                    <input class="form-check-input" type="checkbox" name="is_checked[]" value="{{ $buy->id }}" id="flexCheckDefault{{ $buy->id }}" {{ $buy->is_checked ? 'checked' : '' }} data-buy-id="{{ $buy->id }}" onchange="updateCheck(event,{{ $buy->id }})" />
                 </label >          
                 <label for=""><span>⭐️必要具材</span>
                 <div class="ingredients dd" id="ingredient_{{ $buy->id }}">{{ $buy->ingredient }}</div>
@@ -121,6 +126,10 @@
                 <input type="text" name="place" placeholder="買う場所">
                 <input type="text" name="who_buy" placeholder="買って帰る人">
                 <input type="file" name="item_image" placeholder="具材イメージ" accept="img/*">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="is_checked" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">Is Checked</label>
+                </div>
                 <button type="submit" class="submit-btn gg-btn add-btn">＋必要具材追加</button>
             </div>
         </form>
@@ -154,7 +163,7 @@
         </ul>
     </div>
     @endif
-<script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script>
+{{-- <script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script> --}}
     </main>
     
     @if ($confirmation = Session::get('confirmation'))
@@ -167,6 +176,37 @@
     </script>
 @endif
     <script>
+        var _token = "{{ csrf_token() }}";
+
+        function updateCheck(event, id) {
+
+            const isChecked = event.target.checked
+
+            // console.log('test')
+
+
+            $.ajax({
+                type: 'PATCH',
+                url: "{{ route('buy.checkUpdate') }}",
+                data: {
+                    id : id,
+                    is_checked: isChecked
+                    // Add other data if needed
+                },
+                headers: {
+                    'X-CSRF-TOKEN': _token
+                },
+                success: function (data) {
+                    // Handle success response if needed
+                    console.log('Database updated successfully', data);
+                },
+                error: function (error) {
+                    // Handle error response if needed
+                    console.error('Error updating database:', error);
+                }
+            });
+        }
+
         function toggleEditForm(id) {
             document.getElementById(`ingredient_${id}`).style.display = 'none';
             document.getElementById(`amount_${id}`).style.display = 'none';
@@ -214,6 +254,43 @@
         //     })
         //     .catch(error => console.error('Error:', error));
         // }
+    </script>
+    <script>
+        // headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //         }
+        // $(document).ready(function () {
+        //     $('.form-check-input').on('change', function () {
+        //         var buyId = $(this).data('buy-id');
+        //         var isChecked = $(this).prop('checked');
+
+        //         console.log('Buy ID:', buyId);
+        //         console.log('Is Checked:', isChecked);
+                
+        //         // Make an AJAX request to update the database
+        //         $.ajax({
+        //             type: 'PUT',
+        //             url: '/buy/' + buyId,
+        //             data: {
+        //                 is_checked: isChecked
+        //             },
+        //             dataType: 'json', // Add this line
+        //             headers: {
+        //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //             },
+        //             success: function (data) {
+        //                 // Handle success response if needed
+        //                 console.log('Database updated successfully');
+        //             },
+        //             error: function (error) {
+        //                 // Handle error response if needed
+        //                 console.error('Error updating database:', error);
+        //             }
+        //         });
+        //     });
+        // });
+
+        
     </script>
 </body>
 </html>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('buys', function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('checkbox')->default(false);
+            $table->boolean('is_checked')->default(false);
             $table->string('ingredient');
             $table->string('amount');
             $table->string('place');
