@@ -133,35 +133,36 @@ class BuyController extends Controller
         } else $value = 0;
 
         return $value;
+    }
 
          // Check if the ingredient already exists in the Buy table
-         $existingBuy = Buy::where('ingredient', $ingredient)->first();
+        //  $existingBuy = Buy::where('ingredient', $ingredient)->first();
  
          // If the ingredient exists in either Stock or Buy, show a confirmation message
-         if ($existingStock || $existingBuy) {
-             $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
-             return redirect()->back()->with('confirmation', $confirmationMessage);
-         }
+        //  if ($existingStock || $existingBuy) {
+        //      $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
+        //      return redirect()->back()->with('confirmation', $confirmationMessage);
+        //  }
 
          // $buy が未定義の場合の例
 
-        $buy -> is_checked = $request->has('is_checked') ? true : false;
-        $buy -> ingredient = $ingredient;
-        $buy -> amount = $request -> amount;
-        $buy -> place = $request -> place;
-        $buy -> who_buy = $request -> who_buy;
-        $buy -> menu_id = $request -> menu_id;
-        $buy -> user_id = Auth::id();
-        $buy -> date = $request -> date;
+        // $buy -> is_checked = $request->has('is_checked') ? true : false;
+        // $buy -> ingredient = $ingredient;
+        // $buy -> amount = $request -> amount;
+        // $buy -> place = $request -> place;
+        // $buy -> who_buy = $request -> who_buy;
+        // $buy -> menu_id = $request -> menu_id;
+        // $buy -> user_id = Auth::id();
+        // $buy -> date = $request -> date;
 
-        $buy -> save();
-        $successMessage = 'Ingredient added successfully.';
-        return back()->with('success', $successMessage);
+        // $buy -> save();
+        // $successMessage = 'Ingredient added successfully.';
+        // return back()->with('success', $successMessage);
         // return redirect()->route('buy.index');
         // $successMessage = 'Ingredient added successfully.';
         // return redirect()->route('buy.index')->with('success', $successMessage);
 
-    }
+    // }
 
 
     public function destroy($id)

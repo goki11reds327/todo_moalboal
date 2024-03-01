@@ -135,7 +135,7 @@
                 </div>
 
                 {{-- <button disabled type="submit" class="submit-btn gg-btn add-btn" id="add_btn">＋必要具材追加</button> --}}
-                <button type="submit" class="submit-btn gg-btn add-btn" id="add_btn">＋必要具材追加</button>
+                <button type="submit" class="submit-btn gg-btn add-btn" id="add_btn" onclick="checkData(event)">＋必要具材追加</button>
 
 
             </div>
@@ -191,7 +191,7 @@
     </div>
 
 
-{{-- <script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script> --}}
+    {{-- <script src="https://kit.fontawesome.com/8b26ab2638.js" crossorigin="anonymous"></script> --}}
     
     <div id="question" style="display: none;">
         <div class="question-container">

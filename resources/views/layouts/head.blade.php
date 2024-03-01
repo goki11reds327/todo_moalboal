@@ -27,7 +27,7 @@
         <nav class="">
             <div class="menu-bar">
                 <a class="title" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'MoalBoal') }}
                 </a>
 
                 <div class="">
