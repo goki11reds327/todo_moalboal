@@ -110,6 +110,7 @@ class BuyController extends Controller
             $buy->place = $request->place;
             $buy->who_buy = $request->who_buy;
             $buy->menu_id = $request->menu_id;
+            $buy -> is_checked = $request->has('is_checked') ? true : false;
 
             $buy->save();
     //         $successMessage = 'Ingredient added successfully.';
