@@ -142,6 +142,9 @@ class BuyController extends Controller
              $confirmationMessage = 'This ingredient already exists. Are you sure you want to buy more?';
              return redirect()->back()->with('confirmation', $confirmationMessage);
          }
+
+         // $buy が未定義の場合の例
+
         $buy -> is_checked = $request->has('is_checked') ? true : false;
         $buy -> ingredient = $ingredient;
         $buy -> amount = $request -> amount;
