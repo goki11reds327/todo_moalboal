@@ -88,6 +88,7 @@
                                 <input type="text" name="edited_amount" value="{{ $buy->amount }}">
                                 <input type="text" name="edited_place" value="{{ $buy->place }}">
                                 <input type="text" name="edited_who_buy" value="{{ $buy->who_buy }}">
+                                <input class="form-check-input" type="checkbox" name="is_checked[]" value="{{ $buy->id }}" id="flexCheckDefault{{ $buy->id }}" {{ $buy->is_checked ? 'checked' : '' }} data-buy-id="{{ $buy->id }}" onchange="updateCheck(event,{{ $buy->id }})" />
                                 <button type="submit" class="mini-btn">更新</button>
                             </form>
                         </div>

@@ -194,7 +194,7 @@ class BuyController extends Controller
             'edited_amount' => 'required|string|max:10',
             'edited_place' => 'required|string|max:30',
             'edited_who_buy' => 'required|string|max:10',
-            'is_checked' => 'boolean', // Validate the checkbox value
+            'edited_is_checked' => 'boolean', // Validate the checkbox value
         ]);
 
         $buy = Buy::findOrFail($id);
