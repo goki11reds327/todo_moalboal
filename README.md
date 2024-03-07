@@ -1,5 +1,3 @@
-
-
 ## About ToDo Moalboal
 
 <p>
@@ -9,7 +7,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 ## Member
 
- #### Leader
+#### Leader
 
 <p>
    GOKI KAWAMURA
@@ -27,10 +25,23 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 
 ## Development Period
+
 <p>
 期間：2024年2月20日-2024年3月1日
 </p>
 
+## Start Page
+
+<h3>PC画面</h3><br>
+<img width="300" alt="Start Page" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
+
+<h3>SP画面</h3><br>
+<img width="300" alt="スクリーンショット 2024-02-27 14 01 02" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/46acc2df-3b65-48bf-8f5b-6399afdbdab3">
+
+## Start Page
+
+<h3>SP画面</h3><br>
+<img width="300" alt="スクリーンショット 2024-02-27 14 00 44" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/ef6dba13-9d11-4e4b-aafc-b54cd8f22d5f">
 
 ## How To Environment
 
@@ -43,13 +54,18 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
  Step 6. php artisan serve<br>
 </p>
 
-## Start Page
-<h3>PC画面</h3><br>
-<img width="300" alt="Start Page" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
+<p>
+ Step 1. git clone URL<br>
+ Step 2. Create a database in MySQL<br>
+ Step 3. Enter cp .env.sample .env<br>
+ Step 4. Enter php key:generate to generate a key<br>
+ Step 5. Create tables with php artisan migrate<br>
+ Step 6. Run php artisan serve<br>
+</p>
 
-<h3>SP画面</h3><br>
-<img width="300" alt="スクリーンショット 2024-02-27 14 01 02" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/46acc2df-3b65-48bf-8f5b-6399afdbdab3">
+## Future implementation plans
 
-## Start Page
-<h3>SP画面</h3><br>
-<img width="300" alt="スクリーンショット 2024-02-27 14 00 44" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/ef6dba13-9d11-4e4b-aafc-b54cd8f22d5f">
+<p>
+ ・コメント機能の編集/削除実装<br>
+ ・冷蔵庫機能のそれぞれの食材の個数選択<br>
+</p>
