@@ -53,6 +53,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 # 💻 How To Environment
 
+### 🇯🇵
 <p>
  Step 1. git clone URL<br>
  Step 2. DB作成<br>
@@ -62,6 +63,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
  Step 6. php artisan serve<br>
 </p>
 
+### 🇺🇸
 <p>
  Step 1. git clone URL<br>
  Step 2. Create a database in MySQL<br>
