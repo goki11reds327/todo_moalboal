@@ -44,6 +44,9 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 ![スクリーンショット 2024-03-07 15 11 11](https://github.com/goki11reds327/todo_moalboal/assets/127312306/ccc5aeb8-5f59-40c0-9133-d2ab127ade10)
 
+<img width="300" alt="Start Page" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/ccc5aeb8-5f59-40c0-9133-d2ab127ade10">
+
+
 
 ## Start Page
 <h3>PC画面</h3><br>
