@@ -11,7 +11,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
  #### Leader
 
- <p>
+<p>
    GOKI KAWAMURA
 </p>
  
@@ -42,6 +42,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
  Step 5. php artisan migrateでテーブル作成<br>
  Step 6. php artisan serve<br>
 </p>
+![スクリーンショット 2024-03-07 15 11 11](https://github.com/goki11reds327/todo_moalboal/assets/127312306/ccc5aeb8-5f59-40c0-9133-d2ab127ade10)
 
 
 ## Start Page
