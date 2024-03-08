@@ -84,23 +84,8 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 期間：2024年2月20日-2024年3月1日
 </p>
 
-# Start Page
-
-<h3>PC画面</h3><br>
-<img width="300" alt="Start Page" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
-
-<h3>SP画面</h3><br>
-<img width="300" alt="スクリーンショット 2024-02-27 14 01 02" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/46acc2df-3b65-48bf-8f5b-6399afdbdab3">
-
-# Start Page
-
-<h3>SP画面</h3><br>
-<img width="300" alt="スクリーンショット 2024-02-27 14 00 44" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/ef6dba13-9d11-4e4b-aafc-b54cd8f22d5f">
-
-
-
 ## Screen transition diagram
-<img width="300" alt="スクリーンショット 2024-03-07 15.33.36" src="">
+<img width="300" alt="<img width="962" alt="スクリーンショット 2024-03-08 14 27 19" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c28e71c0-3857-4c40-8245-2b7b62ed55bc">
 
 ## Home Page
 <h3>Mobile　image</h3><br>
