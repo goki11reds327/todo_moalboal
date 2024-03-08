@@ -58,7 +58,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 
 ## Screen transition diagram
-<img width="300" alt="<img width="962" alt="スクリーンショット 2024-03-08 14 27 19" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c28e71c0-3857-4c40-8245-2b7b62ed55bc">
+<img width="962" alt="スクリーンショット 2024-03-08 14 27 19" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c28e71c0-3857-4c40-8245-2b7b62ed55bc">
 
 ## Home Page
 <h3>Mobile　image</h3><br>
@@ -70,27 +70,27 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 ## Login Page
 <h3>Mobile image</h3><br>
-<img width="300" alt="スクリーンショット 2024-03-07 15.51.18" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
+<img width="439" alt="スクリーンショット 2024-03-07 15 51 18" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c2427fca-54f2-41cc-a555-12518944aef5">
 
 ## Profile
 <h3>Mobile image</h3><br>
-<img width="300" alt="スクリーンショット 2024-03-07 16.14.46" src="">
+<img width="438" alt="スクリーンショット 2024-03-07 16 14 46" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/ca92c632-2d30-461a-bee6-adef52557b50">
 
 ## Menu Page
 <h3>Mobile image</h3><br>
-<img width="300" alt="スクリーンショット 2024-03-07 16.14.05" src="">
+<img width="438" alt="スクリーンショット 2024-03-07 16 14 05" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/f6db946b-fcbc-454e-9cc7-f1c697f1b1b1">
 
 ## Buy Page
 <h3>Mobile image</h3><br>
-<img width="300" alt="スクリーンショット 2024-03-07 16.23.03" src="">
+<img width="432" alt="スクリーンショット 2024-03-07 16 23 03" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/a71b4855-a4b9-4050-bae0-c39a581356f7">
 
 ## Stock Page
 <h3>Mobile image</h3><br>
-<img width="300" alt="スクリーンショット 2024-03-07 16.26.44" src="">
+<img width="432" alt="スクリーンショット 2024-03-07 16 26 44" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c4f3142f-dd9f-48ff-81e0-e397197f155d">
 
 ## DB design
 <h3>ER diagram</h3>
-<img width="300" alt="スクリーンショット 2024-03-07 15.33.36" src="">
+<img width="384" alt="スクリーンショット 2024-03-08 16 28 30" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/484f3b3d-6966-40c6-8624-4a01f73e79ce">
 
 # 📖 Functions at a Glance
 
