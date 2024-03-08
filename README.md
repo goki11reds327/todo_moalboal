@@ -28,8 +28,8 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 3．冷蔵庫内の在庫アイテムも登録することができ、在庫がある食材を
 <br>新たに「買い物リスト」に追加した場合は、確認のメッセージが表示。
 
-4.チャット機能
-<br>家族内での情報交換用にチャット機能を搭載、簡単な会話を実施して密なコミュニケーションを実現
+4.コメント機能
+<br>家族内での情報交換用にチャット要素を搭載、簡単な会話を実施して密なコミュニケーションを実現
 
 従来のToDoリストの役割に加え、上記の特徴的な機能を追加し、
 <br>家庭内での買い物を手助けするアプリとなっている。
@@ -61,7 +61,8 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 
 ## Screen transition diagram
-<img width="962" alt="スクリーンショット 2024-03-08 14 27 19" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c28e71c0-3857-4c40-8245-2b7b62ed55bc">
+<img width="947" alt="スクリーンショット 2024-03-07 15 33 36" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/b98609b7-7f34-4c06-b9b3-ecc54c5098d6">
+
 
 ## Home Page
 <h3>Mobile　image</h3><br>
@@ -93,15 +94,25 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 ## DB design
 <h3>ER diagram</h3>
-<img width="400" alt="スクリーンショット 2024-03-08 16 28 30" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/484f3b3d-6966-40c6-8624-4a01f73e79ce">
+<img width="373" alt="スクリーンショット 2024-03-08 16 38 32" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/ce65b0b3-ed97-4c36-b7a5-91dcfc50dbc7">
+
 
 # 📖 Functions at a Glance
-
+### 🇯🇵
 | 機能一覧     | 機能概要                                               |
 | ------------ | ------------------------------------------------------ |
 | 認証機能     | マイページを登録、編集、削除ができる。                 |
 | 献立投稿機能 | 毎日を献立に投稿することで家族間で献立を共有できる機能 |
 | 冷蔵庫機能   | 冷蔵庫の中身を登録できる機能                           |
+| コメント機能   | 家族間で簡単なチャットを行う機能                           |
+
+### 🇺🇸
+| Functions list     | Functional overview                                               |
+| ------------ | ------------------------------------------------------ |
+| Authentication function     | You can register, edit, and delete your My Page.                |
+| Menu posting function | A function that allows you to share the menu with your family by posting your daily menu. |
+| refrigerator function   | A function that allows you to register the contents of the refrigerator. |
+| コメント機能   | 家族間で簡単なチャットを行う機能                           |
 
 # 💻 How To Environment
 
@@ -131,6 +142,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
  ・コメント機能の編集/削除実装<br>
  ・冷蔵庫機能のそれぞれの食材の個数選択<br>
 </p>
+
 ### 🇺🇸
 <p>
  ・Implementation of editing/deleting comment function<br>
