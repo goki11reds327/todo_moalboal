@@ -103,31 +103,31 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 <img width="300" alt="スクリーンショット 2024-03-07 15.33.36" src="">
 
 ## Home Page
-<h3>Mobile画面</h3><br>
+<h3>Mobile　image</h3><br>
 <img width="300" alt="スクリーンショット 2024-02-27 14 01 02" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/46acc2df-3b65-48bf-8f5b-6399afdbdab3">
 
 ## Register Page
-<h3>Mobile画面</h3><br>
+<h3>Mobile image</h3><br>
 <img width="300" alt="スクリーンショット 2024-02-27 14 00 44" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/ef6dba13-9d11-4e4b-aafc-b54cd8f22d5f">
 
 ## Login Page
-<h3>Mobile画面</h3><br>
+<h3>Mobile image</h3><br>
 <img width="300" alt="スクリーンショット 2024-03-07 15.51.18" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/af3a97c8-5728-42e8-9240-27b1d6270747">
 
 ## Profile
-<h3>Mobile画面</h3><br>
+<h3>Mobile image</h3><br>
 <img width="300" alt="スクリーンショット 2024-03-07 16.14.46" src="">
 
 ## Menu Page
-<h3>Mobile画面</h3><br>
+<h3>Mobile image</h3><br>
 <img width="300" alt="スクリーンショット 2024-03-07 16.14.05" src="">
 
 ## Buy Page
-<h3>Mobile画面</h3><br>
+<h3>Mobile image</h3><br>
 <img width="300" alt="スクリーンショット 2024-03-07 16.23.03" src="">
 
 ## Stock Page
-<h3>Mobile画面</h3><br>
+<h3>Mobile image</h3><br>
 <img width="300" alt="スクリーンショット 2024-03-07 16.26.44" src="">
 
 ## DB design
