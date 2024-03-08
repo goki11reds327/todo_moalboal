@@ -97,25 +97,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 <h3>SP画面</h3><br>
 <img width="300" alt="スクリーンショット 2024-02-27 14 00 44" src="https://github.com/goki11reds327/todo_moalboal/assets/127312306/ef6dba13-9d11-4e4b-aafc-b54cd8f22d5f">
 
-# 📖 Functions at a Glance
 
-| 機能一覧     | 機能概要                                               |
-| ------------ | ------------------------------------------------------ |
-| 認証機能     | マイページを登録、編集、削除ができる。                 |
-| 献立投稿機能 | 毎日を献立に投稿することで家族間で献立を共有できる機能 |
-| 冷蔵庫機能   | 冷蔵庫の中身を登録できる機能                           |
-
-# 💻 How To Environment
-
-### 🇯🇵
-<p>
- Step 1. git clone URL<br>
- Step 2. DB作成<br>
- Step 3. cp .env.sample .envを入力<br>
- Step 4. php key:generateを入力し、Keyを作成<br>
- Step 5. php artisan migrateでテーブル作成<br>
- Step 6. php artisan serve<br>
-</p>
 
 ## Screen transition diagram
 <img width="300" alt="スクリーンショット 2024-03-07 15.33.36" src="">
@@ -151,6 +133,27 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 ## DB design
 <h3>ER diagram</h3>
 <img width="300" alt="スクリーンショット 2024-03-07 15.33.36" src="">
+
+# 📖 Functions at a Glance
+
+| 機能一覧     | 機能概要                                               |
+| ------------ | ------------------------------------------------------ |
+| 認証機能     | マイページを登録、編集、削除ができる。                 |
+| 献立投稿機能 | 毎日を献立に投稿することで家族間で献立を共有できる機能 |
+| 冷蔵庫機能   | 冷蔵庫の中身を登録できる機能                           |
+
+# 💻 How To Environment
+
+### 🇯🇵
+<p>
+ Step 1. git clone URL<br>
+ Step 2. DB作成<br>
+ Step 3. cp .env.sample .envを入力<br>
+ Step 4. php key:generateを入力し、Keyを作成<br>
+ Step 5. php artisan migrateでテーブル作成<br>
+ Step 6. php artisan serve<br>
+</p>
+
 ### 🇺🇸
 <p>
  Step 1. git clone URL<br>
