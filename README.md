@@ -28,6 +28,9 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 3．冷蔵庫内の在庫アイテムも登録することができ、在庫がある食材を
 <br>新たに「買い物リスト」に追加した場合は、確認のメッセージが表示。
 
+4.チャット機能
+<br>家族内での情報交換用にチャット機能を搭載、簡単な会話を実施して密なコミュニケーションを実現
+
 従来のToDoリストの役割に加え、上記の特徴的な機能を追加し、
 <br>家庭内での買い物を手助けするアプリとなっている。
 </p>
@@ -70,27 +73,27 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 
 ## Login Page
 <h3>Mobile image</h3><br>
-<img width="439" alt="スクリーンショット 2024-03-07 15 51 18" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c2427fca-54f2-41cc-a555-12518944aef5">
+<img width="300" alt="スクリーンショット 2024-03-07 15 51 18" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c2427fca-54f2-41cc-a555-12518944aef5">
 
 ## Profile
 <h3>Mobile image</h3><br>
-<img width="438" alt="スクリーンショット 2024-03-07 16 14 46" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/ca92c632-2d30-461a-bee6-adef52557b50">
+<img width="300" alt="スクリーンショット 2024-03-07 16 14 46" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/ca92c632-2d30-461a-bee6-adef52557b50">
 
 ## Menu Page
 <h3>Mobile image</h3><br>
-<img width="438" alt="スクリーンショット 2024-03-07 16 14 05" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/f6db946b-fcbc-454e-9cc7-f1c697f1b1b1">
+<img width="300" alt="スクリーンショット 2024-03-07 16 14 05" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/f6db946b-fcbc-454e-9cc7-f1c697f1b1b1">
 
 ## Buy Page
 <h3>Mobile image</h3><br>
-<img width="432" alt="スクリーンショット 2024-03-07 16 23 03" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/a71b4855-a4b9-4050-bae0-c39a581356f7">
+<img width="300" alt="スクリーンショット 2024-03-07 16 23 03" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/a71b4855-a4b9-4050-bae0-c39a581356f7">
 
 ## Stock Page
 <h3>Mobile image</h3><br>
-<img width="432" alt="スクリーンショット 2024-03-07 16 26 44" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c4f3142f-dd9f-48ff-81e0-e397197f155d">
+<img width="300" alt="スクリーンショット 2024-03-07 16 26 44" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/c4f3142f-dd9f-48ff-81e0-e397197f155d">
 
 ## DB design
 <h3>ER diagram</h3>
-<img width="384" alt="スクリーンショット 2024-03-08 16 28 30" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/484f3b3d-6966-40c6-8624-4a01f73e79ce">
+<img width="400" alt="スクリーンショット 2024-03-08 16 28 30" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/484f3b3d-6966-40c6-8624-4a01f73e79ce">
 
 # 📖 Functions at a Glance
 
@@ -123,8 +126,13 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 
 # 💭 Future implementation plans
-
+### 🇯🇵
 <p>
  ・コメント機能の編集/削除実装<br>
  ・冷蔵庫機能のそれぞれの食材の個数選択<br>
+</p>
+### 🇺🇸
+<p>
+ ・Implementation of editing/deleting comment function<br>
+ ・Select the number of each ingredient in the refrigerator function<br>
 </p>
