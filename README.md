@@ -14,7 +14,8 @@ ToDoアプリが仕事や勉強などで様々な場面で活用されている�
 <br>晩御飯の献立と必要な食材を家庭内で共有するためのアプリを開発した。
 </p>
 
-<br>**■主な機能:**
+<p>
+<br>■主な機能:
 <br>1．食事メニューを投稿し、その日の献立を家族内で共有可能。
 
 <br>2．献立の調理に当たり、必要な食材の情報を追加可能。
@@ -33,6 +34,38 @@ ToDoアプリが仕事や勉強などで様々な場面で活用されている�
 
 <br>従来のToDoリストの役割に加え、上記の特徴的な機能を追加し、
 <br>家庭内での買い物を手助けするアプリとなっている。
+
+<p>
+Although ToDo apps are utilized in various scenarios, such as work or study,
+<br>a simple note-taking feature is still commonly used in shopping situations. 
+<br>Thinking that the features and convenience of ToDo apps can make daily shopping easier and more enjoyable, 
+<br>we developed an app for sharing dinner menus and necessary ingredients within the household.
+</p>
+
+<p>
+■Key Features:
+
+<br>1.Post Meal Menus:
+<br>Users can post their meal menus and share them within the family for the day.
+
+<br>2.Add Cooking Information:
+<br>When preparing a menu, users can add information about necessary ingredients,
+<br> including:
+<br>・Ingredient names
+<br>・Required quantities
+<br>・Purchase locations
+<br>・Shopper
+<br>・Images
+
+<br>3.Inventory Management:
+<br>Users can register items in the refrigerator, and if an item already in stock is added to the "shopping list,"
+<br> a confirmation message is displayed.
+
+<br>4.Comment Functionality:
+<br>Equipped with a chat element for exchanging information within the family, 
+<br>facilitating easy conversations for closer communication.
+<br>In addition to the traditional role of ToDo lists,
+<br> the app assists with household shopping by incorporating the above distinctive features.
 </p>
 
 # 👨‍👨‍👧‍👦 Member
