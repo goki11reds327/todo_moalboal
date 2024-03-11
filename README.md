@@ -61,7 +61,7 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 </p>
 
 ## Screen transition diagram
-<img width="947" alt="スクリーンショット 2024-03-07 15 33 36" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/b98609b7-7f34-4c06-b9b3-ecc54c5098d6">
+<img width="600" alt="スクリーンショット 2024-03-07 15 33 36" src="https://github.com/goki11reds327/todo_moalboal/assets/158553742/b98609b7-7f34-4c06-b9b3-ecc54c5098d6">
 
 
 ## Home Page
