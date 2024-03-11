@@ -109,10 +109,10 @@ Laravel10系を使用した、ToDoアプリをモチーフにしたWebアプリ�
 ### 🇺🇸
 | Functions list     | Functional overview                                               |
 | ------------ | ------------------------------------------------------ |
-| Authentication function     | You can register, edit, and delete your My Page.                |
+| Authentication function     | You can register, edit, and delete your My Page. |
 | Menu posting function | A function that allows you to share the menu with your family by posting your daily menu. |
 | refrigerator function   | A function that allows you to register the contents of the refrigerator. |
-| コメント機能   | 家族間で簡単なチャットを行う機能                           |
+| Comment function   | A function that conducts simple chats between family members |
 
 # 💻 How To Environment
 
