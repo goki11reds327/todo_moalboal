@@ -59,7 +59,7 @@
                     <div class="list-line">
                         <div>
                             <label class="form-check-label buylist-text" for="flexCheckDefault">
-                                <span>：完了したらチェックやで</span>
+                                <span></span>
                                 <input class="form-check-input" type="checkbox" name="is_checked[]" value="{{ $buy->id }}" id="flexCheckDefault{{ $buy->id }}" {{ $buy->is_checked ? 'checked' : '' }} data-buy-id="{{ $buy->id }}" onchange="updateCheck(event,{{ $buy->id }})" />
                             </label >           
                             <label for="">
